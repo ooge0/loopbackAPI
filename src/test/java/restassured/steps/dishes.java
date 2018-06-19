@@ -20,7 +20,9 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.StringContains.containsString;
+import static org.junit.Assert.assertEquals;
 
 public class dishes {
 
@@ -31,12 +33,27 @@ public class dishes {
     private String ENDPOINT_DISHES = "http://localhost:3000/api/dishes";
     int dish_massive_size;
     int response_status_code;
-    int size_list;
 
+    @Given("^I check existing of the Dishes list$")
+    public void i_check_existing_of_Dishes_list() {
+        given()
+                .when()
+                .get(ENDPOINT_DISHES)
+                .then().assertThat()
+                .body("any { it.containsKey('name') }", is(true));
 
-    @Given("^I check Dishes list")
-    public void iCheckDishesDB() {
-        request = given();
+    }
+
+    @And("^I check that it has StatusCode (\\d+) and contentType: ([^\\\"]*)$")
+    public void i_check_existing_of_Dishes_list(int status_code, String content_type) {
+        given()
+                .when()
+                .get(ENDPOINT_DISHES)
+                .then().assertThat()
+                .body("any { it.containsKey('name') }", is(true))
+                .and()
+                .statusCode(status_code)
+                .contentType(content_type);
 
     }
 
@@ -48,7 +65,7 @@ public class dishes {
 
     }
 
-    @Then("I delete all dishes from the list and it contains (\\d+) item")
+    @Then("I DELETE all dishes from the list and it contains (\\d+) item")
     public void delete_all_dishes_by_ID(int empty_list_value) {
         response = request.when().get(ENDPOINT_DISHES);
         List<Map<String, List<String>>> allDishes = response.jsonPath().getList("");
@@ -73,7 +90,7 @@ public class dishes {
         Assert.assertEquals(empty_list_value, allDishes.size());
     }
 
-    @And("^I check response of the statusCode is (\\d+)$")
+    @And("^I check the response and statusCode is (\\d+)$")
     public void iCheckResponseOfStatusCodeIs(int verification_status_code) throws Throwable {
         //json = response.then().statusCode(status_code);
         response = request.when().get(ENDPOINT_DISHES);
@@ -82,7 +99,7 @@ public class dishes {
 
     }
 
-    @And("^I add one item as ([^\\\"]*), (\\d+), ([^\\\"]*)$")
+    @And("^I ADD one item as ([^\\\"]*), (\\d+), ([^\\\"]*)$")
     public void iAddOneItemAsCucumberEU(String name, int price, String currency) throws Throwable {
         System.out.println("\nI add one item as: cucumber, 1, EU \n");
         JSONObject requestBody = new JSONObject();
@@ -94,24 +111,22 @@ public class dishes {
         request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
         response = request.post(ENDPOINT_DISHES);
-
-//        Response response = request.post("/dishes");
-        //json = response.then().statusCode(200);
+        ;
         response_status_code = response.getStatusCode();
         Assert.assertEquals(response_status_code, 200);
 
     }
 
-    @And("^I check that list contains (\\d+) items")
-    public void iCheckTheDBSize(int size_list) {
+    @And("^I check that dish list contains (\\d+) items")
+    public void i_check_dish_list_size(int dish_size_list) {
         response = request.when().get(ENDPOINT_DISHES);
         List<Map<String, List<String>>> allDishes = response.jsonPath().getList("");
         System.out.println("Dish list contains: " + allDishes.size() + " items.\n");
-        Assert.assertEquals(size_list, allDishes.size());
+        Assert.assertEquals(dish_size_list, allDishes.size());
 
     }
 
-    @Then("I add several dishes")
+    @Then("I ADD 4 dishes")
     public void i_add_next_items(DataTable table) {
         JSONObject requestBody = new JSONObject();
         System.out.println("I add several dishes.");
@@ -132,7 +147,7 @@ public class dishes {
             request.body(requestBody.toString());
             request.post(ENDPOINT_DISHES);
         }
-        // throw new PendingException();
+
     }
 
     @And("^I check list after adding a new items and it contains (\\d+) items$")
@@ -143,24 +158,28 @@ public class dishes {
         Assert.assertEquals(size_list, allDishes.size());
     }
 
-    @And("^I check the statusCode is (\\d+)$")
-    public void iCheckTheStatusCodeIs(int status_code) {
+    @And("^I check response of the statusCode is (\\d+)$")
+    public void i_check_response_of_the_status_code_is(int status_code) {
         json = response.then().statusCode(status_code);
     }
 
-    @And("^I check that (\\d+) st items has name, price and currency$")
-    public void iCheckThatStItemsHasNamePriceAndCurrency(int item_position, DataTable table) {
+    @And("^I check that (\\d+)st item has name, price and currency$")
+    public void i_check_that_this_item_has_name_price_and_currency(int dish_position, DataTable table) {
+
         response = request.when().get(ENDPOINT_DISHES);
-        System.out.println("I check that selected item has " + item_position + " position.");
+        System.out.println("I check that selected item has " + dish_position + " position.");
 
         List<Map<String, List<String>>> allDishes = response.jsonPath().getList("");
         List<Dish> dishes;
 
         //store all items
         dishes = table.asList(Dish.class);
-        System.out.println("\nI check 1st item. Its name is : " + allDishes.get(item_position - 1).get("name"));
+        System.out.println("\nI check 1st item. Its name is : " + allDishes.get(dish_position - 1).get("name"));
         for (Dish dish : dishes) {
             System.out.println("\n name: " + dish.name + ", price: " + dish.price + ", currency: " + dish.currency);
+            assertEquals((allDishes.get(dish_position - 1).get("name")), dish.name);
+            assertEquals((allDishes.get(dish_position - 1).get("price")), dish.price);
+            assertEquals((allDishes.get(dish_position - 1).get("currency")), dish.currency);
         }
 
     }
@@ -170,8 +189,8 @@ public class dishes {
         int item_position_first = first_item - 1;
         int item_position_last = last_item - 1;
         List<Map<String, List<String>>> allDishes = response.jsonPath().getList("");
-        int dish_massive_size = allDishes.size();
-        System.out.println("\nI choose 1st Dish: " + "\t name: " + allDishes.get(item_position_first).get("name")
+        // int dish_massive_size = allDishes.size();
+        System.out.println("\nI choose first dish: " + "\t name: " + allDishes.get(item_position_first).get("name")
                 + "\t id: " + allDishes.get(item_position_first).get("id"));
         String first_delete_ID_item = String.valueOf(allDishes.get(item_position_first).get("id"));
         given()
@@ -183,7 +202,7 @@ public class dishes {
 
         response = request.when().get(ENDPOINT_DISHES);
         allDishes = response.jsonPath().getList("");
-        System.out.println("\nI choose 2nd Dish: " + "\t name: " + allDishes.get(item_position_last).get("name")
+        System.out.println("\nI choose last dish: " + "\t name: " + allDishes.get(item_position_last).get("name")
                 + "\t id: " + allDishes.get(item_position_last).get("id"));
 
         String last_delete_ID_item = String.valueOf(allDishes.get(item_position_last).get("id"));
@@ -198,26 +217,26 @@ public class dishes {
 
     }
 
-    @Then("^I check that the list contains only (\\d+) item$")
-    public void iCheckThatlistContainsOnlyItem(int size_list) {
+    @Then("^I check that the list contains (\\d+) items$")
+    public void iCheckThatlistContainsItem(int size_list) {
         response = request.when().get(ENDPOINT_DISHES);
         List<Map<String, List<String>>> allDishes = response.jsonPath().getList("");
         System.out.println("\nDish list contains: " + allDishes.size() + " items.\n");
         Assert.assertEquals(size_list, allDishes.size());
     }
 
-    @When("^I add new dishes$")
+    @When("^I ADD one new dish$")
     public void iAddNewDishes(DataTable table) {
         response = request.when().get(ENDPOINT_DISHES);
         JSONObject requestBody = new JSONObject();
-        System.out.println("I only one dish.");
+        System.out.println("I add only one dish.");
         //create an ArrayList
         List<Dish> dishes;
         //store all items
         dishes = table.asList(Dish.class);
         //create FOR cycle for each elements of List<Dish>
         for (Dish dish : dishes) {
-            System.out.println("\n name: " + dish.name + ", price: " + dish.price + ", currency: " + dish.currency);
+            System.out.println("\nname: " + dish.name + ", price: " + dish.price + ", currency: " + dish.currency);
 
             requestBody.put("name", dish.name);
             requestBody.put("price", dish.price);
@@ -241,10 +260,10 @@ public class dishes {
 
     public class Dish {
         public String name;
-        public String price;
+        public int price;
         public String currency;
 
-        Dish(String dishName, String dishPrice, String dishCurrency) {
+        Dish(String dishName, int dishPrice, String dishCurrency) {
             name = dishName;
             price = dishPrice;
             currency = dishCurrency;
