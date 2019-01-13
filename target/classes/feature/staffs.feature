@@ -1,7 +1,7 @@
 Feature: Create Staff records and modify them
 
   Scenario: I create, delete several items and invoke parameters and work with them.
-    When I ADD one staff item in background_first
+#    When I ADD one staff item in background_first
     Given I check existing of the Staff list
     And I check response and it has StatusCode 200 and contentType: application/json
     And I print the Staff list
