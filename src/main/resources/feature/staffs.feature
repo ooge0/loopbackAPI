@@ -1,6 +1,6 @@
 Feature: Create Staff records and modify them
 
-  @test
+#  @test
   Scenario: I create, delete several items and invoke parameters and work with them.
     When I ADD one staff item in background_first
     Given I check existing of the Staff list
