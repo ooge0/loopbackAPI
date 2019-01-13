@@ -1,30 +1,26 @@
-package restassured.steps;
+package api.steps;
 
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-import org.junit.Assert;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 
-public class staffs {
+public class Staffs {
 
 
     private Response response;
@@ -33,6 +29,10 @@ public class staffs {
     private String ENDPOINT_STAFF = "http://localhost:3000/api/staffs";
     int staff_massive_size;
     int response_status_code;
+//    String ENDPOINT_STAFF = Resources.getEnvValue();
+
+    public Staffs() throws IOException {
+    }
 
     @When("^I ADD one staff item in background_first$")
     public void iADDOneStaffItemInBackground_first$() {

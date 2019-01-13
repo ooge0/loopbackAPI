@@ -1,4 +1,4 @@
-//package restassured.steps;
+package api.ngTests;//package restassured.steps;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
 
 public class dishesTestNG {
     private Response response;

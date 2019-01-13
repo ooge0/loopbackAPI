@@ -1,17 +1,14 @@
-package restassured.steps;
+package api.steps;
 
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.junit.Assert;
 
@@ -21,16 +18,15 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 
-public class dishes {
+public class Dishes {
 
 
     private Response response;
     private ValidatableResponse json;
     private RequestSpecification request;
-    private String ENDPOINT_DISHES = "http://localhost:3000/api/dishes";
+    private String ENDPOINT_DISHES = "http://localhost:3000/api/Dishes";
     int dish_massive_size;
     int response_status_code;
 
@@ -129,7 +125,7 @@ public class dishes {
     @Then("I ADD 4 dishes")
     public void i_add_next_items(DataTable table) {
         JSONObject requestBody = new JSONObject();
-        System.out.println("I add several dishes.");
+        System.out.println("I add several Dishes.");
         //create an ArrayList
         List<Dish> dishes;
         //store all items

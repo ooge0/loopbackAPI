@@ -1,5 +1,6 @@
 Feature: Create Dish records and modify them
 
+@test
   Scenario: I create, delete several items and invoke parameters and work with them.
     Given I check existing of the Dishes list
     And I check that it has StatusCode 200 and contentType: application/json
