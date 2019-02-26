@@ -1,5 +1,6 @@
 package api.steps;
 
+import api.helpers.Resources;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -26,7 +27,7 @@ public class Staffs {
     private Response response;
     private ValidatableResponse json;
     private RequestSpecification request;
-    private String ENDPOINT_STAFF = "http://localhost:3000/api/staffs";
+        private String ENDPOINT_STAFF = "http://localhost:3000/api/staffs";
     int staff_massive_size;
     int response_status_code;
 //    String ENDPOINT_STAFF = Resources.getEnvValue();
@@ -41,14 +42,14 @@ public class Staffs {
                 .body("{\n" +
                         "  \"first_name\": \"fName-1nd\",\n" +
                         "   \"staff_position\": \"st_pos - 1nd\",\n" +
-                        "    \"last_name\": \"lName - 1nd\"\n" +
+                        "    \"last_name\": \"lName - 1nd\",\n" +
+                        "    \"starship\": \"starship - 1nd\"\n" +
                         "}")
                 .when()
                 .post(ENDPOINT_STAFF)
                 .then()
                 .statusCode(200);
         System.out.println("iADDOneStaffItemInBackground_first is completed\n");
-//        System.out.println(response.getBody().asString());
     }
 
     @Given("^I check existing of the Staff list$")
@@ -79,18 +80,14 @@ public class Staffs {
     public void get_prettyPrint_of_staff_list() {
         request = given();
         response = request.when().get(ENDPOINT_STAFF);
-        //  System.out.println("response: " + response.prettyPrint());
 
     }
 
 
     @Then("^I delete all records from the Staff list$")
     public void i_delete_all_records_from_staff_list() {
-//        request = given();
-//        response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         staff_massive_size = 1;
-
         for (Map<String, List<String>> staff_list : allStaffs) {
             String deleted_staff_ID = String.valueOf(staff_list.get("id"));
             given()
@@ -123,23 +120,21 @@ public class Staffs {
 
     }
 
-    @And("^I ADD one staff record as ([^\\\"]*), ([^\\\"]*), ([^\\\"]*)$")
+    @And("^I ADD one staff record as ([^\\\"]*), ([^\\\"]*), ([^\\\"]*), ([^\\\"]*)$")
 
-    public void I_add_new_one_staff_record(String first_name, String last_name, String staff_positon) {
+    public void I_add_new_one_staff_record(String first_name, String last_name, String staff_positon, String starship) {
         System.out.println("first_name: " + first_name + ", last_name: " + last_name + ", staff_positon: " + staff_positon);
 //        request = given();
         JSONObject requestBody = new JSONObject();
         requestBody.put("first_name", first_name);
         requestBody.put("last_name", last_name);
         requestBody.put("staff_position", staff_positon);
+        requestBody.put("starship", starship);
 
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
         response = request.post(ENDPOINT_STAFF);
-
-//        System.out.println("I_add_new_one_staff_record is completed\n");
-//        System.out.println("\ngetStatusCode: " + response.getStatusCode());
         response_status_code = response.getStatusCode();
         assertEquals(response_status_code, 200);
     }
@@ -153,13 +148,13 @@ public class Staffs {
                 .body("{\n" +
                         "  \"first_name\": \"test_background\",\n" +
                         "   \"staff_position\": \"test_background\",\n" +
-                        "    \"last_name\": \"test_background\"\n" +
+                        "    \"last_name\": \"test_background\",\n" +
+                        "    \"starship\": \"test_starship\"\n" +
                         "}")
                 .when()
                 .post(ENDPOINT_STAFF)
                 .then()
                 .statusCode(200);
-//        System.out.println(response.getBody().asString());
         System.out.println("iADDOneStaffItemInBackground is completed\n");
     }
 
@@ -171,22 +166,19 @@ public class Staffs {
         List<Staff> staffs;
         //store all items
         staffs = table.asList(Staff.class);
-        //create FOR cycle for each elements of List<Dish>
+        //create FOR cycle for each elements of List<Staff>
         for (Staff staff : staffs) {
             System.out.println("\nname: " + staff.first_name + " " + staff.last_name + ", staff_position: " + staff.staff_position);
             requestBody.put("first_name", staff.first_name);
             requestBody.put("last_name", staff.last_name);
             requestBody.put("staff_position", staff.staff_position);
-
+            requestBody.put("starship", staff.starship);
             RequestSpecification request = RestAssured.given();
             request.header("Content-Type", "application/json");
             request.body(requestBody.toString());
-//            System.out.println("response" + response.getBody().asString());
             request.post(ENDPOINT_STAFF);
-
             int statusCode = response.getStatusCode();
             assertEquals(statusCode, 200);
-//            System.out.println("Status Code is : " + statusCode);
             System.out.println(response.getBody().asString());
         }
     }
@@ -246,26 +238,25 @@ public class Staffs {
         request = given();
         response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        staff_massive_size=0;
+        staff_massive_size = 0;
         for (Map<String, List<String>> staff_list : allStaffs) {
             given()
                     .when()
-                    .get(ENDPOINT_STAFF )
+                    .get(ENDPOINT_STAFF)
                     .then()
                     .statusCode(200);
-            System.out.println("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") );
+            System.out.println("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id"));
             staff_massive_size++;
         }
     }
 
 
     @When("^I delete (\\d+) and (\\d+) item from DB$")
-    public void iDeleteAndItemFromDB(int first_item, int last_item)  {
+    public void iDeleteAndItemFromDB(int first_item, int last_item) {
         int item_position_first = first_item - 1;
 
         response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        // int dish_massive_size = allDishes.size();
         System.out.println("\nI choose first staff record: " + "\t name: " + allStaffs.get(item_position_first).get("first_name")
                 + "\t id: " + allStaffs.get(item_position_first).get("id"));
         String first_delete_ID_item = String.valueOf(allStaffs.get(item_position_first).get("id"));
@@ -307,7 +298,7 @@ public class Staffs {
     public void thisItemHasNameAndPosition(DataTable table) {
         response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        int staf_list_size = allStaffs.size()-1;
+        int staf_list_size = allStaffs.size() - 1;
         System.out.println("staf_list_size: " + staf_list_size);
         List<Staff> staffs;
 
@@ -316,25 +307,23 @@ public class Staffs {
         System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get("first_name") + " " + allStaffs.get(staf_list_size).get("last_name") + " " + allStaffs.get(staf_list_size).get("staff_position"));
         for (Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
-//
-//            assertEquals((allStaffs.get(staf_list_size).get("first_name")), staff.first_name);
-//            assertEquals((allStaffs.get(staf_list_size).get("last_name")), staff.last_name);
-//            assertEquals((allStaffs.get(staf_list_size).get("staff_position")), staff.staff_position);
         }
     }
-
 
 
     public class Staff {
         public String first_name;
         public String last_name;
         public String staff_position;
+        public String starship;
 
-        Staff(String firstName, String lastName, String staffPositon) {
+        Staff(String firstName, String lastName, String staffPositon, String starShip) {
             first_name = firstName;
             last_name = lastName;
             staff_position = staffPositon;
+            starship = starShip;
         }
     }
+
 
 }

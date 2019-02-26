@@ -18,7 +18,7 @@ public class Resources {
     }
 
     public static String envPropertyFilePath() {
-        String envPropertyFilePath = "./src/env.properties";
+        String envPropertyFilePath = "./env.properties";
         return envPropertyFilePath;
     }
 
