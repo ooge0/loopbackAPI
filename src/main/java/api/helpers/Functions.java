@@ -1,11 +1,7 @@
-package api.steps;
+package api.helpers;
 
-import api.helpers.Resources;
+import api.stepDefinitions.Staffs;
 import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -21,22 +17,24 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
-public class Staffs {
+public class Functions {
+    private static Response response;
+    static ValidatableResponse json;
+    private static RequestSpecification request;
+    static int staff_massive_size, response_status_code;
+    private static String ENDPOINT_STAFF;
 
 
-    private Response response;
-    private ValidatableResponse json;
-    private RequestSpecification request;
-        private String ENDPOINT_STAFF = "http://localhost:3000/api/staffs";
-    int staff_massive_size;
-    int response_status_code;
-//    String ENDPOINT_STAFF = Resources.getEnvValue();
-
-    public Staffs() throws IOException {
+    static {
+        try {
+            ENDPOINT_STAFF = Resources.getEnvValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @When("^I ADD one staff item in background_first$")
-    public void iADDOneStaffItemInBackground_first$() {
+
+    public static void addingStaffBackground() {
         given()
                 .header("Content-Type", "application/json")
                 .body("{\n" +
@@ -49,21 +47,19 @@ public class Staffs {
                 .post(ENDPOINT_STAFF)
                 .then()
                 .statusCode(200);
-        System.out.println("iADDOneStaffItemInBackground_first is completed\n");
+        System.out.println("addingStaffBackground is completed\n");
     }
 
-    @Given("^I check existing of the Staff list$")
-    public void i_check_existing_of_the_staff_list() {
+    public static void checkingExistedStaffList() {
         given()
                 .when()
                 .get(ENDPOINT_STAFF)
                 .then().assertThat()
                 .body("any { it.containsKey('first_name') }", is(true));
-        System.out.println("i_check_existing_of_the_staff_list is completed\n");
+        System.out.println("checkingExistedStaffList is completed\n");
     }
 
-    @And("^I check response and it has StatusCode (\\d+) and contentType: ([^\\\"]*)$")
-    public void iCheckRessponseAndItHasStatusCodeAndContentTypeApplicationJson(int status_code, String content_type) {
+    public static void checkingResponseStatusCode(int status_code, String content_type) {
         given()
                 .when()
                 .get(ENDPOINT_STAFF)
@@ -72,21 +68,15 @@ public class Staffs {
                 .and()
                 .statusCode(status_code)
                 .contentType(content_type);
-        System.out.println("iCheckRessponseAndItHasStatusCodeAndContentTypeApplicationJson is completed\n");
-
+        System.out.println("checkingResponseStatusCode is completed\n");
     }
 
-    @And("I print information about Staff list")
-    public void get_prettyPrint_of_staff_list() {
+
+    public static void deleteAllStaffs() {
         request = given();
         response = request.when().get(ENDPOINT_STAFF);
-
-    }
-
-
-    @Then("^I delete all records from the Staff list$")
-    public void i_delete_all_records_from_staff_list() {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
+        System.out.println("\n");
         staff_massive_size = 1;
         for (Map<String, List<String>> staff_list : allStaffs) {
             String deleted_staff_ID = String.valueOf(staff_list.get("id"));
@@ -96,35 +86,13 @@ public class Staffs {
                     .statusCode(200)
                     .and()
                     .body("count", equalTo(1));
-            System.out.println("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") + " is DELETED");
+            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") + " is DELETED");
             staff_massive_size++;
         }
-
     }
 
-    @And("^I check that staff list and it contains (\\d+) item$")
-    public void i_check_staff_list_and_it_contains_0_items(int empty_list_value) {
-        response = request.when().get(ENDPOINT_STAFF);
-        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        // allStaffs = response.jsonPath().getList("");
-        System.out.println("\nStaff list contains: " + allStaffs.size() + " items after deleting of all items\n");
-        assertEquals(empty_list_value, allStaffs.size());
-    }
-
-    @And("^I check the Staff list and statusCode is (\\d+)$")
-    public void i_Check_staff_list_Response_Of_StatusCode_Is(int verification_status_code) {
-        //json = response.then().statusCode(status_code);
-        response = request.when().get(ENDPOINT_STAFF);
-        response_status_code = response.getStatusCode();
-        assertEquals(response_status_code, verification_status_code);
-
-    }
-
-    @And("^I ADD one staff record as ([^\\\"]*), ([^\\\"]*), ([^\\\"]*), ([^\\\"]*)$")
-
-    public void I_add_new_one_staff_record(String first_name, String last_name, String staff_positon, String starship) {
+    public static void addNewStaffRecord(String first_name, String last_name, String staff_positon, String starship) {
         System.out.println("first_name: " + first_name + ", last_name: " + last_name + ", staff_positon: " + staff_positon);
-//        request = given();
         JSONObject requestBody = new JSONObject();
         requestBody.put("first_name", first_name);
         requestBody.put("last_name", last_name);
@@ -139,35 +107,15 @@ public class Staffs {
         assertEquals(response_status_code, 200);
     }
 
-    @And("^I ADD one staff item in background$")
-    public void iADDOneStaffItemInBackground() {
 
-        request = given(); //test_background$
-        given()
-                .header("Content-Type", "application/json")
-                .body("{\n" +
-                        "  \"first_name\": \"test_background\",\n" +
-                        "   \"staff_position\": \"test_background\",\n" +
-                        "    \"last_name\": \"test_background\",\n" +
-                        "    \"starship\": \"test_starship\"\n" +
-                        "}")
-                .when()
-                .post(ENDPOINT_STAFF)
-                .then()
-                .statusCode(200);
-        System.out.println("iADDOneStaffItemInBackground is completed\n");
-    }
-
-    @And("^I ADD 3 staffs items$")
-    public void iAddNextItems(DataTable table) {
+    public static void addSomeStaffRecords(DataTable table) {
         JSONObject requestBody = new JSONObject();
-        System.out.println("\nI add only one staff item.");
         //create an ArrayList
-        List<Staff> staffs;
+        List<Staffs.Staff> staffs;
         //store all items
-        staffs = table.asList(Staff.class);
+        staffs = table.asList(Staffs.Staff.class);
         //create FOR cycle for each elements of List<Staff>
-        for (Staff staff : staffs) {
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nname: " + staff.first_name + " " + staff.last_name + ", staff_position: " + staff.staff_position);
             requestBody.put("first_name", staff.first_name);
             requestBody.put("last_name", staff.last_name);
@@ -183,49 +131,16 @@ public class Staffs {
         }
     }
 
-    @And("^I ADD one staff item in background_second$")
-    public void iADDOneStaffItemInBackground_second$() {
-        given()
-                .header("Content-Type", "application/json")
-                .body("{\n" +
-                        "  \"first_name\": \"fName-2nd\",\n" +
-                        "   \"staff_position\": \"st_pos - 2nd\",\n" +
-                        "    \"last_name\": \"lName - 2nd\"\n" +
-                        "}")
-                .when()
-                .post(ENDPOINT_STAFF)
-                .then()
-                .statusCode(200);
-//        System.out.println(response.getBody().asString());
-    }
 
-    @And("^I check that list contains (\\d+) items$")
-    public void I_check_that_list_contains_items_and_statusCode_is(int staff_size_list) {
-
-        response = request.when().get(ENDPOINT_STAFF);
-        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println("\nI check list after adding and it contains: " + allStaffs.size() + " items.\n");
-        assertEquals(staff_size_list, allStaffs.size());
-
-    }
-
-    @And("^I check that last request has statusCode: (\\d+)$")
-    public void i_check_response_of_the_status_code_is(int status_code) {
-        json = response.then().statusCode(status_code);
-    }
-
-    @And("^I check that (\\d+) record has name and it has next positon$")
-    public void iCheckThatHeroHasNameAndItHasPositon(int hero_position, DataTable table) {
+    public static void checkingPositionAndName(int hero_position, DataTable table) {
         response = request.when().get(ENDPOINT_STAFF);
         System.out.println("I check that selected item has: " + hero_position + " position.");
-
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        List<Staff> staffs;
-
+        List<Staffs.Staff> staffs;
         //store all items
-        staffs = table.asList(Staff.class);
+        staffs = table.asList(Staffs.Staff.class);
         System.out.println("\nI check DataTable  record. It has parameters: " + allStaffs.get(hero_position - 1).get("first_name") + " " + allStaffs.get(hero_position - 1).get("last_name") + " " + allStaffs.get(hero_position - 1).get("staff_position"));
-        for (Staff staff : staffs) {
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
             assertEquals((allStaffs.get(hero_position - 1).get("first_name")), staff.first_name);
             assertEquals((allStaffs.get(hero_position - 1).get("last_name")), staff.last_name);
@@ -233,8 +148,7 @@ public class Staffs {
         }
     }
 
-    @And("^I print the Staff list$")
-    public void iPrintStaffList() {
+    public static void printingRecordsList() {
         request = given();
         response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
@@ -245,14 +159,12 @@ public class Staffs {
                     .get(ENDPOINT_STAFF)
                     .then()
                     .statusCode(200);
-            System.out.println("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id"));
+            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id"));
             staff_massive_size++;
         }
+
     }
-
-
-    @When("^I delete (\\d+) and (\\d+) item from DB$")
-    public void iDeleteAndItemFromDB(int first_item, int last_item) {
+    public static void deletingRecords(int first_item, int last_item) {
         int item_position_first = first_item - 1;
 
         response = request.when().get(ENDPOINT_STAFF);
@@ -281,49 +193,21 @@ public class Staffs {
                 .statusCode(200)
                 .and()
                 .body("count", equalTo(1));
-
-
     }
 
-    @Then("^I check that staff list contains (\\d+) item$")
-    public void iCheckThatDBContainsOnlyItem(int staff_size_list) {
-        response = request.when().get(ENDPOINT_STAFF);
-        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println("\nI check staff list after adding and it contains: " + allStaffs.size() + " items.\n");
-        assertEquals(staff_size_list, allStaffs.size());
-
-    }
-
-    @And("^I check that last item has name and position$")
-    public void thisItemHasNameAndPosition(DataTable table) {
+    public static void checkingLastRecordNamePosition(DataTable table) {
         response = request.when().get(ENDPOINT_STAFF);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staf_list_size = allStaffs.size() - 1;
         System.out.println("staf_list_size: " + staf_list_size);
-        List<Staff> staffs;
+        List<Staffs.Staff> staffs;
 
         //store all items
-        staffs = table.asList(Staff.class);
+        staffs = table.asList(Staffs.Staff.class);
         System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get("first_name") + " " + allStaffs.get(staf_list_size).get("last_name") + " " + allStaffs.get(staf_list_size).get("staff_position"));
-        for (Staff staff : staffs) {
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
         }
     }
-
-
-    public class Staff {
-        public String first_name;
-        public String last_name;
-        public String staff_position;
-        public String starship;
-
-        Staff(String firstName, String lastName, String staffPositon, String starShip) {
-            first_name = firstName;
-            last_name = lastName;
-            staff_position = staffPositon;
-            starship = starShip;
-        }
-    }
-
 
 }

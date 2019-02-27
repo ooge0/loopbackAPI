@@ -1,7 +1,7 @@
 
 */*/*/*/*/*/*/*/*/  Prerequisites  *\*\*\*\*\*\*\*\*\\*
 Java over 1.8.0_151
-Node.js (npm) over 6.1.0
+Node.js (npm) over 6.1.0 (for launching back-end app)
 
 
 

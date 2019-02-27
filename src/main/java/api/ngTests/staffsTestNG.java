@@ -1,4 +1,4 @@
-package api.ngTests;//package restassured.steps;
+package api.ngTests;//package restassured.stepDefinitions;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
