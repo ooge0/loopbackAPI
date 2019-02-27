@@ -1,23 +1,18 @@
-package api.helpers;
+package api.helpers.staffs;
 
-import api.stepDefinitions.Staffs;
-import cucumber.api.DataTable;
-import io.restassured.RestAssured;
+import api.helpers.Resources;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
-public class BasicMethods {
+public class BasicMethodsStaffs {
     private static Response response;
     static ValidatableResponse json;
     private static RequestSpecification request;

@@ -1,6 +1,7 @@
-package api.helpers;
+package api.helpers.staffs;
 
-import api.stepDefinitions.Staffs;
+import api.POJO.Staffs;
+import api.helpers.Resources;
 import cucumber.api.DataTable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -17,7 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
-public class Functions {
+public class FunctionsStaffs {
     private static Response response;
     static ValidatableResponse json;
     private static RequestSpecification request;
@@ -102,6 +103,7 @@ public class Functions {
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
+
         response = request.post(ENDPOINT_STAFF);
         response_status_code = response.getStatusCode();
         assertEquals(response_status_code, 200);
@@ -164,6 +166,7 @@ public class Functions {
         }
 
     }
+
     public static void deletingRecords(int first_item, int last_item) {
         int item_position_first = first_item - 1;
 
