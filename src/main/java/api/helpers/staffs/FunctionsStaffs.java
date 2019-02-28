@@ -1,6 +1,6 @@
 package api.helpers.staffs;
 
-import api.POJO.Staffs;
+import api.POJO.Entity;
 import api.helpers.Resources;
 import cucumber.api.DataTable;
 import io.restassured.RestAssured;
@@ -33,7 +33,6 @@ public class FunctionsStaffs {
             e.printStackTrace();
         }
     }
-
 
     public static void addingStaffBackground() {
         given()
@@ -113,16 +112,13 @@ public class FunctionsStaffs {
     public static void addSomeStaffRecords(DataTable table) {
         JSONObject requestBody = new JSONObject();
         //create an ArrayList
-        List<Staffs.Staff> staffs;
+        List<Entity.Staff> staffs;
         //store all items
-        staffs = table.asList(Staffs.Staff.class);
+        staffs = table.asList(Entity.Staff.class);
         //create FOR cycle for each elements of List<Staff>
-        for (Staffs.Staff staff : staffs) {
+        for (Entity.Staff staff : staffs) {
             System.out.println("\nname: " + staff.first_name + " " + staff.last_name + ", staff_position: " + staff.staff_position);
-            requestBody.put("first_name", staff.first_name);
-            requestBody.put("last_name", staff.last_name);
-            requestBody.put("staff_position", staff.staff_position);
-            requestBody.put("starship", staff.starship);
+            creatingStaffObect(requestBody, staff);
             RequestSpecification request = RestAssured.given();
             request.header("Content-Type", "application/json");
             request.body(requestBody.toString());
@@ -133,16 +129,23 @@ public class FunctionsStaffs {
         }
     }
 
+    private static void creatingStaffObect(JSONObject requestBody, Entity.Staff staff) {
+        requestBody.put("first_name", staff.first_name);
+        requestBody.put("last_name", staff.last_name);
+        requestBody.put("staff_position", staff.staff_position);
+        requestBody.put("starship", staff.starship);
+    }
+
 
     public static void checkingPositionAndName(int hero_position, DataTable table) {
         response = request.when().get(ENDPOINT_STAFF);
         System.out.println("I check that selected item has: " + hero_position + " position.");
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        List<Staffs.Staff> staffs;
+        List<Entity.Staff> staffs;
         //store all items
-        staffs = table.asList(Staffs.Staff.class);
+        staffs = table.asList(Entity.Staff.class);
         System.out.println("\nI check DataTable  record. It has parameters: " + allStaffs.get(hero_position - 1).get("first_name") + " " + allStaffs.get(hero_position - 1).get("last_name") + " " + allStaffs.get(hero_position - 1).get("staff_position"));
-        for (Staffs.Staff staff : staffs) {
+        for (Entity.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
             assertEquals((allStaffs.get(hero_position - 1).get("first_name")), staff.first_name);
             assertEquals((allStaffs.get(hero_position - 1).get("last_name")), staff.last_name);
@@ -203,12 +206,12 @@ public class FunctionsStaffs {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staf_list_size = allStaffs.size() - 1;
         System.out.println("staf_list_size: " + staf_list_size);
-        List<Staffs.Staff> staffs;
+        List<Entity.Staff> staffs;
 
         //store all items
-        staffs = table.asList(Staffs.Staff.class);
+        staffs = table.asList(Entity.Staff.class);
         System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get("first_name") + " " + allStaffs.get(staf_list_size).get("last_name") + " " + allStaffs.get(staf_list_size).get("staff_position"));
-        for (Staffs.Staff staff : staffs) {
+        for (Entity.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
         }
     }

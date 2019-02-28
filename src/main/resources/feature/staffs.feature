@@ -19,13 +19,13 @@ Feature: Create Staff records and modify them
     When I add one staff item in background
     And I check that list contains 6 items
     And I check that last request has statusCode: 200
-    And I check that 3 record has name and it has next positon
+    And I check that '3' record has info and positon
       | first_name | last_name | staff_position |
       | Wonder     | Woman     | hero           |
     And I print the Staff list
     When I delete 1 and 2 item from DB
     Then I check that staff list contains 4 item
-    And I check that last item has name and position
+    And I check that 'last' item has name and position
       | first_name | last_name | staff_position |
       | Wonder     | Woman     | hero           |
 

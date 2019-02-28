@@ -1,7 +1,7 @@
 package api.POJO;
 
 
-public class Staffs {
+public class Entity {
 
     public class Staff {
         public String first_name;
@@ -9,7 +9,7 @@ public class Staffs {
         public String staff_position;
         public String starship;
 
-        Staff(String firstName, String lastName, String staffPositon, String starShip) {
+        public Staff (String firstName, String lastName, String staffPositon, String starShip) {
             first_name = firstName;
             last_name = lastName;
             staff_position = staffPositon;
