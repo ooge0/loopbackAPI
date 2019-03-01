@@ -1,6 +1,6 @@
 package api.helpers.staffs;
 
-import api.POJO.Entity;
+import api.POJO.Staffs;
 import api.helpers.Resources;
 import cucumber.api.DataTable;
 import io.restassured.RestAssured;
@@ -34,20 +34,34 @@ public class FunctionsStaffs {
         }
     }
 
+    static String bd = "{\n" +
+            "  \"first_name\": \"fName-1nd\",\n" +
+            "   \"staff_position\": \"st_pos - 1nd\",\n" +
+            "    \"last_name\": \"lName - 1nd\",\n" +
+            "    \"starship\": \"starship - 1nd\"\n" +
+            "}";
+
     public static void addingStaffBackground() {
-        given()
-                .header("Content-Type", "application/json")
-                .body("{\n" +
-                        "  \"first_name\": \"fName-1nd\",\n" +
-                        "   \"staff_position\": \"st_pos - 1nd\",\n" +
-                        "    \"last_name\": \"lName - 1nd\",\n" +
-                        "    \"starship\": \"starship - 1nd\"\n" +
-                        "}")
-                .when()
-                .post(ENDPOINT_STAFF)
-                .then()
-                .statusCode(200);
+        PostStaffRecCheckStCode.invoke();
         System.out.println("addingStaffBackground is completed\n");
+    }
+
+    public static void deleteAllStaffs() {
+        requestManipulation();
+        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
+        System.out.println("\n");
+        staff_massive_size = 1;
+        for (Map<String, List<String>> staff_list : allStaffs) {
+            String deleted_staff_ID = String.valueOf(staff_list.get("id"));
+            given()
+                    .when()
+                    .delete(ENDPOINT_STAFF + "/" + deleted_staff_ID).then()
+                    .statusCode(200)
+                    .and()
+                    .body("count", equalTo(1));
+            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") + " is DELETED");
+            staff_massive_size++;
+        }
     }
 
     public static void checkingExistedStaffList() {
@@ -72,32 +86,14 @@ public class FunctionsStaffs {
     }
 
 
-    public static void deleteAllStaffs() {
+    private static void requestManipulation() {
         request = given();
         response = request.when().get(ENDPOINT_STAFF);
-        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println("\n");
-        staff_massive_size = 1;
-        for (Map<String, List<String>> staff_list : allStaffs) {
-            String deleted_staff_ID = String.valueOf(staff_list.get("id"));
-            given()
-                    .when()
-                    .delete(ENDPOINT_STAFF + "/" + deleted_staff_ID).then()
-                    .statusCode(200)
-                    .and()
-                    .body("count", equalTo(1));
-            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") + " is DELETED");
-            staff_massive_size++;
-        }
     }
 
     public static void addNewStaffRecord(String first_name, String last_name, String staff_positon, String starship) {
         System.out.println("first_name: " + first_name + ", last_name: " + last_name + ", staff_positon: " + staff_positon);
-        JSONObject requestBody = new JSONObject();
-        requestBody.put("first_name", first_name);
-        requestBody.put("last_name", last_name);
-        requestBody.put("staff_position", staff_positon);
-        requestBody.put("starship", starship);
+        JSONObject requestBody = creatingJsonObject(first_name, last_name, staff_positon, starship);
 
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
@@ -108,17 +104,26 @@ public class FunctionsStaffs {
         assertEquals(response_status_code, 200);
     }
 
+    private static JSONObject creatingJsonObject(String first_name, String last_name, String staff_positon, String starship) {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("first_name", first_name);
+        requestBody.put("last_name", last_name);
+        requestBody.put("staff_position", staff_positon);
+        requestBody.put("starship", starship);
+        return requestBody;
+    }
+
 
     public static void addSomeStaffRecords(DataTable table) {
         JSONObject requestBody = new JSONObject();
         //create an ArrayList
-        List<Entity.Staff> staffs;
+        List<Staffs.Staff> staffs;
         //store all items
-        staffs = table.asList(Entity.Staff.class);
-        //create FOR cycle for each elements of List<Staff>
-        for (Entity.Staff staff : staffs) {
+        staffs = table.asList(Staffs.Staff.class);
+        //create FOR cycle for each elements of List<Staffs>
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nname: " + staff.first_name + " " + staff.last_name + ", staff_position: " + staff.staff_position);
-            creatingStaffObect(requestBody, staff);
+            creatingStaffObectFromObject(requestBody, staff);
             RequestSpecification request = RestAssured.given();
             request.header("Content-Type", "application/json");
             request.body(requestBody.toString());
@@ -129,7 +134,7 @@ public class FunctionsStaffs {
         }
     }
 
-    private static void creatingStaffObect(JSONObject requestBody, Entity.Staff staff) {
+    private static void creatingStaffObectFromObject(JSONObject requestBody, Staffs.Staff staff) {
         requestBody.put("first_name", staff.first_name);
         requestBody.put("last_name", staff.last_name);
         requestBody.put("staff_position", staff.staff_position);
@@ -141,11 +146,11 @@ public class FunctionsStaffs {
         response = request.when().get(ENDPOINT_STAFF);
         System.out.println("I check that selected item has: " + hero_position + " position.");
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        List<Entity.Staff> staffs;
+        List<Staffs.Staff> staffs;
         //store all items
-        staffs = table.asList(Entity.Staff.class);
+        staffs = table.asList(Staffs.Staff.class);
         System.out.println("\nI check DataTable  record. It has parameters: " + allStaffs.get(hero_position - 1).get("first_name") + " " + allStaffs.get(hero_position - 1).get("last_name") + " " + allStaffs.get(hero_position - 1).get("staff_position"));
-        for (Entity.Staff staff : staffs) {
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
             assertEquals((allStaffs.get(hero_position - 1).get("first_name")), staff.first_name);
             assertEquals((allStaffs.get(hero_position - 1).get("last_name")), staff.last_name);
@@ -154,8 +159,7 @@ public class FunctionsStaffs {
     }
 
     public static void printingRecordsList() {
-        request = given();
-        response = request.when().get(ENDPOINT_STAFF);
+        requestManipulation();
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         staff_massive_size = 0;
         for (Map<String, List<String>> staff_list : allStaffs) {
@@ -178,6 +182,7 @@ public class FunctionsStaffs {
         System.out.println("\nI choose first staff record: " + "\t name: " + allStaffs.get(item_position_first).get("first_name")
                 + "\t id: " + allStaffs.get(item_position_first).get("id"));
         String first_delete_ID_item = String.valueOf(allStaffs.get(item_position_first).get("id"));
+
         given()
                 .when()
                 .delete(ENDPOINT_STAFF + "/" + first_delete_ID_item).then()
@@ -206,14 +211,24 @@ public class FunctionsStaffs {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staf_list_size = allStaffs.size() - 1;
         System.out.println("staf_list_size: " + staf_list_size);
-        List<Entity.Staff> staffs;
-
+        List<Staffs.Staff> staffs;
         //store all items
-        staffs = table.asList(Entity.Staff.class);
+        staffs = table.asList(Staffs.Staff.class);
         System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get("first_name") + " " + allStaffs.get(staf_list_size).get("last_name") + " " + allStaffs.get(staf_list_size).get("staff_position"));
-        for (Entity.Staff staff : staffs) {
+        for (Staffs.Staff staff : staffs) {
             System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
         }
     }
 
+    private static class PostStaffRecCheckStCode {
+        private static void invoke() {
+            given()
+                    .header("Content-Type", "application/json")
+                    .body(bd)
+                    .when()
+                    .post(ENDPOINT_STAFF)
+                    .then()
+                    .statusCode(200);
+        }
+    }
 }

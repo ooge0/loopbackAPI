@@ -89,11 +89,11 @@ public class staffsTestNG {
 
         System.out.println("Staffs massive contains: " + staff_massive_size + " items");
 
-        System.out.println("Deleted last Staff record contained: " + "\n firstName: " + allStaffs.get(last_item).get("firstName")
+        System.out.println("Deleted last Staffs record contained: " + "\n firstName: " + allStaffs.get(last_item).get("firstName")
                 + "\tlast_name: " + allStaffs.get(last_item).get("last_name")
                 + "\tid: " + allStaffs.get(last_item).get("id")
                 + "\tstaff_position: " + allStaffs.get(1).get("staff_position"));
-        System.out.println("Staff collection contains: '" + last_item  +" 'records");
+        System.out.println("Staffs collection contains: '" + last_item  +" 'records");
         String deleted_staff_ID;
 
         deleted_staff_ID = String.valueOf(allStaffs.get(last_item).get("id"));
@@ -114,7 +114,7 @@ public class staffsTestNG {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staff_massive_size = allStaffs.size();
 
-        System.out.println("Staff massive contains: " + staff_massive_size + " items");
+        System.out.println("Staffs massive contains: " + staff_massive_size + " items");
         for (Map<String, List<String>> staffs_db : allStaffs) {
             String deleted_staff_ID = String.valueOf(staffs_db.get("id"));
             System.out.println("deleted_staff_ID: " + deleted_staff_ID);
@@ -122,7 +122,7 @@ public class staffsTestNG {
                     .when()
                     .delete("/staffs/" + deleted_staff_ID);
 
-            System.out.println("Staff[" + counter + "]: " + "firstName: " + staffs_db.get("firstName") +
+            System.out.println("Staffs[" + counter + "]: " + "firstName: " + staffs_db.get("firstName") +
                     "\t id: " + staffs_db.get("id") + " is DELETED\n");
             staff_massive_size--;
             counter ++;

@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
-public class StepDefenitions {
+public class StaffStepDefenitions {
 
 
     @When("^I add one staff item in background$")

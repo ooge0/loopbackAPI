@@ -1,7 +1,7 @@
 package api.POJO;
 
 
-public class Entity {
+public class Staffs {
 
     public class Staff {
         public String first_name;
