@@ -5,31 +5,32 @@ import java.io.IOException;
 import static io.restassured.RestAssured.given;
 
 public class RequestConstructor {
-    private static String ENDPOINT_STAFF;
-    private String[] header = {"Content-Type", "application/json"};
+    private static String endPoint;
 
-    static {
-        try {
-            ENDPOINT_STAFF = Resources.getEnvValue();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void requestGenerator(String typeRequest, String bodyAsString, String[] header) {
+    public static void requestGenerator(String endPoint, String typeRequest, String bodyAsString, String id) {
+        String[] header = new String[]{"Content-Type", "application/json"};
+
         switch (typeRequest) {
             case "GET":
                 given()
-                        .header(header[1], header[2])
                         .when()
-                        .get(ENDPOINT_STAFF);
+                        .get(endPoint);
                 break;
             case "POST":
                 given()
-                        .header(header[1], header[2])
+                        .header(header[0], header[1])
                         .body(bodyAsString)
                         .when()
-                        .post(ENDPOINT_STAFF);
+                        .post(endPoint);
+                break;
+
+            case "DELETE":
+                given()
+                        .header(header[0], header[1])
+                        .body(bodyAsString)
+                        .when()
+                        .delete(endPoint + "/" + id);
                 break;
             default:
                 System.out.println("Please check HTTP verb!");

@@ -23,12 +23,12 @@ public class FunctionsStaffs {
     static ValidatableResponse json;
     private static RequestSpecification request;
     static int staff_massive_size, response_status_code;
-    private static String ENDPOINT_STAFF;
+    private static String endpoint;
 
 
     static {
         try {
-            ENDPOINT_STAFF = Resources.getEnvValue();
+            endpoint = Resources.getEnvValue("STAFF");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class FunctionsStaffs {
     }
 
     public static void deleteAllStaffs() {
-        requestManipulation();
+        requestGetManipulation();
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         System.out.println("\n");
         staff_massive_size = 1;
@@ -55,7 +55,7 @@ public class FunctionsStaffs {
             String deleted_staff_ID = String.valueOf(staff_list.get("id"));
             given()
                     .when()
-                    .delete(ENDPOINT_STAFF + "/" + deleted_staff_ID).then()
+                    .delete(endpoint + "/" + deleted_staff_ID).then()
                     .statusCode(200)
                     .and()
                     .body("count", equalTo(1));
@@ -67,7 +67,7 @@ public class FunctionsStaffs {
     public static void checkingExistedStaffList() {
         given()
                 .when()
-                .get(ENDPOINT_STAFF)
+                .get(endpoint)
                 .then().assertThat()
                 .body("any { it.containsKey('first_name') }", is(true));
         System.out.println("checkingExistedStaffList is completed\n");
@@ -76,7 +76,7 @@ public class FunctionsStaffs {
     public static void checkingResponseStatusCode(int status_code, String content_type) {
         given()
                 .when()
-                .get(ENDPOINT_STAFF)
+                .get(endpoint)
                 .then().assertThat()
                 .body("any { it.containsKey('first_name') }", is(true))
                 .and()
@@ -86,9 +86,9 @@ public class FunctionsStaffs {
     }
 
 
-    private static void requestManipulation() {
+    private static void requestGetManipulation() {
         request = given();
-        response = request.when().get(ENDPOINT_STAFF);
+        response = request.when().get(endpoint);
     }
 
     public static void addNewStaffRecord(String first_name, String last_name, String staff_positon, String starship) {
@@ -99,7 +99,7 @@ public class FunctionsStaffs {
         request.header("Content-Type", "application/json");
         request.body(requestBody.toString());
 
-        response = request.post(ENDPOINT_STAFF);
+        response = request.post(endpoint);
         response_status_code = response.getStatusCode();
         assertEquals(response_status_code, 200);
     }
@@ -127,7 +127,7 @@ public class FunctionsStaffs {
             RequestSpecification request = RestAssured.given();
             request.header("Content-Type", "application/json");
             request.body(requestBody.toString());
-            request.post(ENDPOINT_STAFF);
+            request.post(endpoint);
             int statusCode = response.getStatusCode();
             assertEquals(statusCode, 200);
             System.out.println(response.getBody().asString());
@@ -143,7 +143,7 @@ public class FunctionsStaffs {
 
 
     public static void checkingPositionAndName(int hero_position, DataTable table) {
-        response = request.when().get(ENDPOINT_STAFF);
+        response = request.when().get(endpoint);
         System.out.println("I check that selected item has: " + hero_position + " position.");
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         List<Staffs.Staff> staffs;
@@ -159,13 +159,13 @@ public class FunctionsStaffs {
     }
 
     public static void printingRecordsList() {
-        requestManipulation();
+        requestGetManipulation();
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         staff_massive_size = 0;
         for (Map<String, List<String>> staff_list : allStaffs) {
             given()
                     .when()
-                    .get(ENDPOINT_STAFF)
+                    .get(endpoint)
                     .then()
                     .statusCode(200);
             System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id"));
@@ -177,7 +177,7 @@ public class FunctionsStaffs {
     public static void deletingRecords(int first_item, int last_item) {
         int item_position_first = first_item - 1;
 
-        response = request.when().get(ENDPOINT_STAFF);
+        response = request.when().get(endpoint);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         System.out.println("\nI choose first staff record: " + "\t name: " + allStaffs.get(item_position_first).get("first_name")
                 + "\t id: " + allStaffs.get(item_position_first).get("id"));
@@ -185,12 +185,12 @@ public class FunctionsStaffs {
 
         given()
                 .when()
-                .delete(ENDPOINT_STAFF + "/" + first_delete_ID_item).then()
+                .delete(endpoint + "/" + first_delete_ID_item).then()
                 .statusCode(200)
                 .and()
                 .body("count", equalTo(1));
 
-        response = request.when().get(ENDPOINT_STAFF);
+        response = request.when().get(endpoint);
         int item_position_last = last_item - 2;
         allStaffs = response.jsonPath().getList("");
         System.out.println("\nI choose last  record: " + "\t name: " + allStaffs.get(item_position_last).get("first_name")
@@ -200,14 +200,14 @@ public class FunctionsStaffs {
 
         given()
                 .when()
-                .delete(ENDPOINT_STAFF + "/" + last_delete_ID_item).then()
+                .delete(endpoint + "/" + last_delete_ID_item).then()
                 .statusCode(200)
                 .and()
                 .body("count", equalTo(1));
     }
 
     public static void checkingLastRecordNamePosition(DataTable table) {
-        response = request.when().get(ENDPOINT_STAFF);
+        response = request.when().get(endpoint);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staf_list_size = allStaffs.size() - 1;
         System.out.println("staf_list_size: " + staf_list_size);
@@ -226,7 +226,7 @@ public class FunctionsStaffs {
                     .header("Content-Type", "application/json")
                     .body(bd)
                     .when()
-                    .post(ENDPOINT_STAFF)
+                    .post(endpoint)
                     .then()
                     .statusCode(200);
         }
