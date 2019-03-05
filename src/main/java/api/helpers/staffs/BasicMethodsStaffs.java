@@ -33,17 +33,17 @@ public class BasicMethodsStaffs {
         response = request.when().get(endPoint);
     }
 
-    public static void checkingResponseStatusCode(int verification_status_code) {
+    public static void checkingResponseStatusCode(int reference_status_code) {
         response = request.when().get(endPoint);
         response_status_code = response.getStatusCode();
-        assertEquals(response_status_code, verification_status_code);
+        assertEquals(response_status_code, reference_status_code);
     }
 
     public static void listSize(int staff_size_list) {
         request = given();
         response = request.when().get(endPoint);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println("\nI check list after adding and it contains: " + allStaffs.size() + " items.\n");
+        System.out.println("\nI check the list after adding and it contains: " + allStaffs.size() + " items.\n");
         assertEquals(staff_size_list, allStaffs.size());
 
     }

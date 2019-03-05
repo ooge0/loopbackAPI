@@ -1,14 +1,14 @@
-Feature: Create Staff records and modify them
+Feature: Interaction with Records model
 
   @test
   Scenario: I create, delete several records. Invoke parameters and work with them.
     Given I'm working with Records entity
-    When I check an existed Records
-    And I check response and it has StatusCode 200 and contentType: application/json
+#    When I check an existed Records
     And I add new 'Record'
       | recordIdItem | recordLabelItem | recordCreationDataItem | recordRelationItem | recordOwnerItem | recordStatusItem | idItem |
       | beverages    | cola            | 10 Apr 2019            | restorans          | boss            | true             | 1      |
       | device       | tv              | 11/12/2005             | apollo 2           | slayer          | false            | 123    |
+#      And I check response and it has StatusCode 200 and contentType: application/json
 
 
 

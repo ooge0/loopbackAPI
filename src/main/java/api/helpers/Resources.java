@@ -26,7 +26,7 @@ public class Resources {
     public static String getEnvValue(String entity) throws IOException {
         String serviceURL = null;
         String envValue = System.getProperty("urlConfig");
-        System.out.println("envValue: "+ envValue);
+        System.out.println("envValue: " + envValue);
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(Resources.envPropertyFilePath());
         prop.load(fis);

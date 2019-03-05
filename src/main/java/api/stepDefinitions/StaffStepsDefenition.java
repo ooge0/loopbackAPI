@@ -24,11 +24,12 @@ public class StaffStepsDefenition {
     public void checkingExistedStaffRecord() {
         FunctionsStaffs.checkingExistedStaffList();
     }
-
+/*
     @And("^I check response and it has StatusCode (\\d+) and contentType: ([^\\\"]*)$")
     public void checkingResponseStatusCodeContentType(int status_code, String content_type) {
-        FunctionsStaffs.checkingResponseStatusCode(status_code, content_type);
+        FunctionsStaffs.checkingItemResponseStatusCode(status_code, content_type);
     }
+    */
 
     @And("I print the Staff list")
     public void printingStaffList() {

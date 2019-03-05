@@ -73,7 +73,7 @@ public class FunctionsStaffs {
         System.out.println("checkingExistedStaffList is completed\n");
     }
 
-    public static void checkingResponseStatusCode(int status_code, String content_type) {
+    public static void checkingItemResponseStatusCode(int status_code, String content_type) {
         given()
                 .when()
                 .get(endpoint)
@@ -82,7 +82,7 @@ public class FunctionsStaffs {
                 .and()
                 .statusCode(status_code)
                 .contentType(content_type);
-        System.out.println("checkingResponseStatusCode is completed\n");
+        System.out.println("checkingItemResponseStatusCode is completed\n");
     }
 
 
@@ -122,7 +122,6 @@ public class FunctionsStaffs {
         staffs = table.asList(Staffs.Staff.class);
         //create FOR cycle for each elements of List<Staffs>
         for (Staffs.Staff staff : staffs) {
-            System.out.println("\nname: " + staff.first_name + " " + staff.last_name + ", staff_position: " + staff.staff_position);
             creatingStaffObectFromObject(requestBody, staff);
             RequestSpecification request = RestAssured.given();
             request.header("Content-Type", "application/json");
@@ -130,7 +129,7 @@ public class FunctionsStaffs {
             request.post(endpoint);
             int statusCode = response.getStatusCode();
             assertEquals(statusCode, 200);
-            System.out.println(response.getBody().asString());
+            System.out.println("*** addSomeStaffRecords **** \n" + response.getBody().asString());
         }
     }
 

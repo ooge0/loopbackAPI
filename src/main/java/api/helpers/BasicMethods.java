@@ -28,6 +28,7 @@ public class BasicMethods {
             default:
                 System.out.println("Please check HTTP verb!");
         }
+        System.out.println("HTTP verb: " + actionMethod);
         return actionMethod;
     }
 

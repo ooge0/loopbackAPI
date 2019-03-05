@@ -1,14 +1,29 @@
 package api.helpers;
 
-import java.io.IOException;
+import api.POJO.Records;
+import api.POJO.Staffs;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class RequestConstructor {
     private static String endPoint;
+    private static Response response;
+    static ValidatableResponse json;
+    private static RequestSpecification request;
+    static int response_status_code;
 
 
-    public static void requestGenerator(String endPoint, String typeRequest, String bodyAsString, String id) {
+    public static RequestSpecification requestCompiler(String endPoint, String typeRequest, String bodyAsString, String id) {
         String[] header = new String[]{"Content-Type", "application/json"};
 
         switch (typeRequest) {
@@ -34,8 +49,17 @@ public class RequestConstructor {
                 break;
             default:
                 System.out.println("Please check HTTP verb!");
-
-
         }
+        return request;
     }
+
+    public static void checkingExistingCollection() {
+        Response response = request.when().get(endPoint);
+        List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
+        System.out.println("\nI check the list after adding and it contains: " + allStaffs.size() + " items.\n");
+        assertNotNull(allStaffs);
+    }
+
+
+
 }

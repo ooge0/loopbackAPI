@@ -1,54 +1,55 @@
 package api.helpers;
-
 import api.POJO.Records;
 import api.POJO.Staffs;
 import cucumber.api.DataTable;
+import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
+import org.junit.Assert;
 
+import javax.xml.ws.Response;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static api.helpers.JsonObjectConstructor.makeRecordJsonObject;
+import static api.helpers.JsonObjectConstructor.makeStaffJsonObject;
 
 public class MainMethods {
+    static String body = null;
+    static RequestSpecification response;
 
-
-    public static String bodyEntityGenerator(String entityName,  DataTable table) {
+    public static Response requestGenerator(String endPoint, String httpVerb, String entityKey, DataTable table) {
         JSONObject requestBody = new JSONObject();
-        String requestBodyAsString = null;
-        if (entityName == "Staff") {
+        if (entityKey == "Staff") {
             //create an ArrayList
-            List<Staffs.Staff> entities;
+            List<Staffs.Staff> staffs;
             //store all items from selected entity
-            entities = table.asList(Staffs.Staff.class);
+            staffs = table.asList(Staffs.Staff.class);
             //create FOR cycle for each elements of List<Staffs>
-            for (Staffs.Staff entity : entities) {
-                requestBody = new JSONObject();
-                requestBody.put("first_name", entity.first_name);
-                requestBody.put("last_name", entity.last_name);
-                requestBody.put("staff_position", entity.staff_position);
-                requestBody.put("starship", entity.starship);
+            for (Staffs.Staff staff : staffs) {
+                body = JsonObjectConstructor.makeStaffJsonObject(requestBody, staff).toString();
+                response = RequestConstructor.requestCompiler(endPoint, httpVerb, body, null);
+
             }
-        } else if (entityName == "Record") {
-            //create an ArrayList
-            List<Records.Record> entities;
-            //store all items from selected entity
-            entities = table.asList(Records.Record.class);
-            //create FOR cycle for each elements of List<Staffs>
-            for (Records.Record entity : entities) {
-                requestBody = new JSONObject();
-                requestBody.put("recordIdItem", entity.recordIdItem);
-                requestBody.put("recordLabelItem", entity.recordLabelItem);
-                requestBody.put("recordCreationDataItem", entity.recordCreationDataItem);
-                requestBody.put("recordRelationItem", entity.recordRelationItem);
-                requestBody.put("recordOwnerItem", entity.recordOwnerItem);
-                requestBody.put("recordStatusItem", entity.recordStatusItem);
-                requestBody.put("idItem", entity.idItem);
+        } else if (entityKey == "Record") {
+            List<Records.Record> records;
+            records = table.asList(Records.Record.class);
+            for (Records.Record record : records) {
+                body = JsonObjectConstructor.makeRecordJsonObject(requestBody, record).toString();
+                response = RequestConstructor.requestCompiler(endPoint, httpVerb, body, null);
             }
 
         } else {
             System.out.println(Resources.defaultRequestWarning());
         }
-        requestBodyAsString = requestBody.toString();
-        return requestBodyAsString;
+
+        return (Response) response;
     }
+
+//    public responseValidation(Response response) {
+//
+//        int statusCode = response.getStatusCode();
+//        Assert.assertEquals(statusCode, "201");
+//        String successCode = response.jsonPath().get("SuccessCode");
+//        Assert.assertEquals("Correct Success code was returned", successCode, "OPERATION_SUCCESS");
+//    }
 }
+
