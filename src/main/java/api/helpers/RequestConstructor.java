@@ -23,8 +23,9 @@ public class RequestConstructor {
     static int response_status_code;
 
 
-    public static RequestSpecification requestCompiler(String endPoint, String typeRequest, String bodyAsString, String id) {
+    public static void requestCompiler(String endPoint, String typeRequest, String bodyAsString, String id) {
         String[] header = new String[]{"Content-Type", "application/json"};
+        Response result=null;
 
         switch (typeRequest) {
             case "GET":
@@ -37,7 +38,8 @@ public class RequestConstructor {
                         .header(header[0], header[1])
                         .body(bodyAsString)
                         .when()
-                        .post(endPoint);
+                        .post(endPoint)
+                        .then().statusCode(200);
                 break;
 
             case "DELETE":
@@ -50,7 +52,7 @@ public class RequestConstructor {
             default:
                 System.out.println("Please check HTTP verb!");
         }
-        return request;
+//        return result;
     }
 
     public static void checkingExistingCollection() {

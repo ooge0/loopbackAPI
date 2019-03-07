@@ -9,13 +9,12 @@ public class Staffs {
         public String staff_position;
         public String starship;
 
-        public Staff (String firstName, String lastName, String staffPositon, String starShip) {
+        public Staff(String firstName, String lastName, String staffPositon, String starShip) {
             first_name = firstName;
             last_name = lastName;
             staff_position = staffPositon;
             starship = starShip;
         }
     }
-
 
 }

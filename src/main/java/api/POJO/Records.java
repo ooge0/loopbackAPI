@@ -7,20 +7,16 @@ public class Records {
         public String recordLabelItem;
         public String recordCreationDataItem;
         public String[] recordRelationItem;
-
         public String recordOwnerItem;
         public boolean recordStatusItem;
-        public String idItem;
 
-        public Record(int recordId, String recordLabel, String recordCreationData, String[] recordRelation, String recordOwner, boolean recordStatus, String id) {
+        public Record(int recordId, String recordLabel, String recordCreationData, String[] recordRelation, String recordOwner, boolean recordStatus) {
             recordIdItem = recordId;
             recordLabelItem = recordLabel;
             recordCreationDataItem = recordCreationData;
             recordRelationItem = recordRelation;
             recordOwnerItem = recordOwner;
             recordStatusItem = recordStatus;
-            idItem = id;
-
         }
     }
 }

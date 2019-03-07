@@ -1,40 +1,45 @@
 package api.helpers;
+
 import api.POJO.Records;
 import api.POJO.Staffs;
 import cucumber.api.DataTable;
-import io.restassured.specification.RequestSpecification;
+import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.Assert;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
-import static api.helpers.JsonObjectConstructor.makeRecordJsonObject;
-import static api.helpers.JsonObjectConstructor.makeStaffJsonObject;
+import static org.junit.Assert.assertEquals;
+
 
 public class MainMethods {
-    static String body = null;
-    static RequestSpecification response;
+    static Response response;
+    static List<Staffs.Staff> staffs;
+    static List<Records.Record> records;
+    static int response_status_code;
 
     public static Response requestGenerator(String endPoint, String httpVerb, String entityKey, DataTable table) {
-        JSONObject requestBody = new JSONObject();
-        if (entityKey == "Staff") {
-            //create an ArrayList
-            List<Staffs.Staff> staffs;
-            //store all items from selected entity
+
+        if (entityKey.equals("Staff")) {
+            String body;
             staffs = table.asList(Staffs.Staff.class);
-            //create FOR cycle for each elements of List<Staffs>
+            JSONObject requestBody = new JSONObject();
             for (Staffs.Staff staff : staffs) {
                 body = JsonObjectConstructor.makeStaffJsonObject(requestBody, staff).toString();
-                response = RequestConstructor.requestCompiler(endPoint, httpVerb, body, null);
-
+                System.out.println("\n***** requestGenerator ****** \nendPoint: "+endPoint+ "\nhttpVerb: " + httpVerb +"\nbody: " + body+"\n***** requestGenerator ******\n");
+                RequestConstructor.requestCompiler(endPoint, httpVerb, body, "someID");
+              //  System.out.println("response: " + response.toString());
+//                response_status_code = response.getStatusCode();
+//                assertEquals(response_status_code, 200);
             }
-        } else if (entityKey == "Record") {
-            List<Records.Record> records;
+        } else if (entityKey.equals("Record")) {
             records = table.asList(Records.Record.class);
+            String body;
+            JSONObject requestBody = new JSONObject();
             for (Records.Record record : records) {
-                body = JsonObjectConstructor.makeRecordJsonObject(requestBody, record).toString();
-                response = RequestConstructor.requestCompiler(endPoint, httpVerb, body, null);
+                JSONObject createdBody = JsonObjectConstructor.makeRecordJsonObject(requestBody, record);
+                body = createdBody.toString();
+                RequestConstructor.requestCompiler(endPoint, httpVerb, body, "id");
+
             }
 
         } else {

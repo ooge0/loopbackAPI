@@ -1,13 +1,24 @@
 Feature: Interaction with Records model
 
-  @test
+  @Records
   Scenario: I create, delete several records. Invoke parameters and work with them.
     Given I'm working with Records entity
-#    When I check an existed Records
     And I add new 'Record'
-      | recordIdItem | recordLabelItem | recordCreationDataItem | recordRelationItem | recordOwnerItem | recordStatusItem | idItem |
-      | beverages    | cola            | 10 Apr 2019            | restorans          | boss            | true             | 1      |
-      | device       | tv              | 11/12/2005             | apollo 2           | slayer          | false            | 123    |
+      | recordIdItem | recordLabelItem | recordCreationDataItem | recordRelationItem | recordOwnerItem | recordStatusItem |
+      | 1            | cola            | 10 Apr 2019            | restorans          | boss            | true             |
+      | 2            | tv              | 11/12/2005             | apollo 2           | slayer          | false            |
+
+
+  @staff
+  Scenario: I create, delete Staff. Invoke parameters and work with them.
+    Given I'm working with Staff entity
+    And I add new 'Staff'
+      | first_name | last_name | staff_position | starship |
+      | Wonder     | Woman     | hero           | apollo 1 |
+      | Boba       | Fett      | actor          | apollo 2 |
+
+
+#    When I check an existed Records
 #      And I check response and it has StatusCode 200 and contentType: application/json
 
 

@@ -10,7 +10,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 public class RecordStepsDefenition {
-    static String endPoint, httpVerb,entityName, responseBody, requestBody ;
+     String endPoint, httpVerb,entityName ;
 
     @Given("^I'm working with ([^\\\"]*) entity$")
     public void recordEntityInitialization(String entity)  {
@@ -35,9 +35,7 @@ public class RecordStepsDefenition {
     @Then("^I (add|delete|check) an existed Records$")
     public void checkingExistedStaffRecord(String actionWord) {
         httpVerb = BasicMethods.gettingHttpVerb(actionWord);
-
-//        requestBody = "\"any { it.containsKey('recordLabel') }\", is(true)";
-        RequestConstructor.requestCompiler(endPoint, httpVerb, " "," ");
+        RequestConstructor.requestCompiler(endPoint, httpVerb, " ", " ");
         RequestConstructor.checkingExistingCollection();
 
     }
