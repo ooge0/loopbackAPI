@@ -3,32 +3,33 @@ package api.stepDefinitions;
 import api.helpers.BasicMethods;
 import api.helpers.MainMethods;
 import api.helpers.RequestConstructor;
-import api.helpers.staffs.FunctionsStaffs;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import io.restassured.response.Response;
 
 public class RecordStepsDefenition {
-     String endPoint, httpVerb,entityName ;
+    String endPoint, httpVerb, entityName;
+    static Response response;
 
     @Given("^I'm working with ([^\\\"]*) entity$")
-    public void recordEntityInitialization(String entity)  {
+    public void recordEntityInitialization(String entity) {
         entityName = entity.toLowerCase();
         endPoint = BasicMethods.gettingEndPoint(entity);
     }
 
 
-    @And("^I (add|delete|check) new '(Record|Staff)'$")
+    @And("^I (add|delete|check) new '(Record|Staff)' and store id for each entity$")
     public void addingNewEntities(String actionWord, String entityKey, DataTable table) {
         httpVerb = BasicMethods.gettingHttpVerb(actionWord);
-        MainMethods.requestGenerator(endPoint,httpVerb,entityKey, table);
+        response = MainMethods.requestGenerator(endPoint, httpVerb, entityKey, table);
     }
 
 
-    @And("^I check response and it has StatusCode (\\d+) and contentType: ([^\\\"]*)$")
-    public void checkingResponseStatusCodeContentType(int status_code, String content_type) {
-        FunctionsStaffs.checkingItemResponseStatusCode(status_code, content_type);
+    @And("^I check that (StatusCode|SuccessCode|contentType) is '([^\\\"]*)'$")
+    public void checkingResponseParameters(String referenceParameter, String referenceValue) {
+        MainMethods.responseParameterValidator(referenceParameter, referenceValue);
     }
 
 
@@ -36,8 +37,12 @@ public class RecordStepsDefenition {
     public void checkingExistedStaffRecord(String actionWord) {
         httpVerb = BasicMethods.gettingHttpVerb(actionWord);
         RequestConstructor.requestCompiler(endPoint, httpVerb, " ", " ");
-        RequestConstructor.checkingExistingCollection();
+   }
 
+    @Then("^I checked that collection isn't empty$")
+    public void checkingCollection() {
+        RequestConstructor.checkingExistingCollection();
     }
+
 }
 

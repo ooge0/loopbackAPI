@@ -216,4 +216,11 @@ public class staffsTestNG {
         System.out.println("Status Code is : " + statusCode);
         System.out.println(response.getBody().asString());
     }
+
+    @Test
+    public void stringMethods () {
+        StringBuffer strBuffer = new StringBuffer("assembler");
+        strBuffer.reverse();
+        System.out.println(strBuffer.toString()); //relbmessa
+    }
 }

@@ -12,14 +12,19 @@ Feature: Interaction with Records model
   @staff
   Scenario: I create, delete Staff. Invoke parameters and work with them.
     Given I'm working with Staff entity
-    And I add new 'Staff'
+    Then I add new 'Staff' and store id for each entity
       | first_name | last_name | staff_position | starship |
       | Wonder     | Woman     | hero           | apollo 1 |
       | Boba       | Fett      | actor          | apollo 2 |
+    Then I check that StatusCode is '200'
+#    Then I check that contentType is 'application/json; charset=utf-8'
+#    Then I check that SuccessCode is 'OPERATION_SUCCESS'
+#  Then I checked that collection isn't empty
+
 
 
 #    When I check an existed Records
-#      And I check response and it has StatusCode 200 and contentType: application/json
+
 
 
 

@@ -49,6 +49,7 @@ public class BasicMethodsStaffs {
     }
 
     public static void statusCodeValidation(int status_code) {
+
         json = response.then().statusCode(status_code);
     }
 
