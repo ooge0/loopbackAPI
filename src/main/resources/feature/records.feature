@@ -13,7 +13,7 @@ Feature: Interaction with Records model
   Scenario: I create, delete Staff. Invoke parameters and work with them.
     Given I'm working with Staff entity
     Then I add new 'Staff' and store id for each entity
-      | first_name | last_name | staff_position | starship |
+      |  firstName |  lastName |  staffPosition | starship |
       | Wonder     | Woman     | hero           | apollo 1 |
       | Boba       | Fett      | actor          | apollo 2 |
     Then I check that StatusCode is '200'

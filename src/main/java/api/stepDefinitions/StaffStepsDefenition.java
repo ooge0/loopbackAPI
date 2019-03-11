@@ -55,8 +55,8 @@ public class StaffStepsDefenition {
 
     @And("^I add one staff record as ([^\\\"]*), ([^\\\"]*), ([^\\\"]*), ([^\\\"]*)$")
 
-    public void addingOneStaffRecord(String first_name, String last_name, String staff_positon, String starship) {
-        FunctionsStaffs.addNewStaffRecord(first_name, last_name, staff_positon, starship);
+    public void addingOneStaffRecord(String  firstName, String  lastName, String staff_positon, String starship) {
+        FunctionsStaffs.addNewStaffRecord( firstName,  lastName, staff_positon, starship);
     }
 
 

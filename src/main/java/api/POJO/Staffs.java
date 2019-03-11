@@ -4,16 +4,16 @@ package api.POJO;
 public class Staffs {
 
     public class Staff {
-        public String first_name;
-        public String last_name;
-        public String staff_position;
+        public String firstName;
+        public String lastName;
+        public String staffPosition;
         public String starship;
 
         public Staff(String firstName, String lastName, String staffPositon, String starShip) {
-            first_name = firstName;
-            last_name = lastName;
-            staff_position = staffPositon;
-            starship = starShip;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.staffPosition = staffPositon;
+            this.starship = starShip;
         }
     }
 

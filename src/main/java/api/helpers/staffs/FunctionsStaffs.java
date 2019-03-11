@@ -35,9 +35,9 @@ public class FunctionsStaffs {
     }
 
     static String bd = "{\n" +
-            "  \"first_name\": \"fName-1nd\",\n" +
-            "   \"staff_position\": \"st_pos - 1nd\",\n" +
-            "    \"last_name\": \"lName - 1nd\",\n" +
+            "  \" firstName\": \"fName-1nd\",\n" +
+            "   \" staffPosition\": \"st_pos - 1nd\",\n" +
+            "    \" lastName\": \"lName - 1nd\",\n" +
             "    \"starship\": \"starship - 1nd\"\n" +
             "}";
 
@@ -59,7 +59,7 @@ public class FunctionsStaffs {
                     .statusCode(200)
                     .and()
                     .body("count", equalTo(1));
-            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id") + " is DELETED");
+            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get(" firstName") + " id: " + staff_list.get("id") + " is DELETED");
             staff_massive_size++;
         }
     }
@@ -69,7 +69,7 @@ public class FunctionsStaffs {
                 .when()
                 .get(endpoint)
                 .then().assertThat()
-                .body("any { it.containsKey('first_name') }", is(true));
+                .body("any { it.containsKey(' firstName') }", is(true));
         System.out.println("checkingExistedStaffList is completed\n");
     }
 
@@ -78,7 +78,7 @@ public class FunctionsStaffs {
                 .when()
                 .get(endpoint)
                 .then().assertThat()
-                .body("any { it.containsKey('first_name') }", is(true))
+                .body("any { it.containsKey(' firstName') }", is(true))
                 .and()
                 .statusCode(status_code)
                 .contentType(content_type);
@@ -91,9 +91,9 @@ public class FunctionsStaffs {
         response = request.when().get(endpoint);
     }
 
-    public static void addNewStaffRecord(String first_name, String last_name, String staff_positon, String starship) {
-        System.out.println("first_name: " + first_name + ", last_name: " + last_name + ", staff_positon: " + staff_positon);
-        JSONObject requestBody = creatingJsonObject(first_name, last_name, staff_positon, starship);
+    public static void addNewStaffRecord(String  firstName, String  lastName, String staff_positon, String starship) {
+        System.out.println(" firstName: " +  firstName + ",  lastName: " +  lastName + ", staff_positon: " + staff_positon);
+        JSONObject requestBody = creatingJsonObject( firstName,  lastName, staff_positon, starship);
 
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
@@ -104,11 +104,11 @@ public class FunctionsStaffs {
         assertEquals(response_status_code, 200);
     }
 
-    private static JSONObject creatingJsonObject(String first_name, String last_name, String staff_positon, String starship) {
+    private static JSONObject creatingJsonObject(String  firstName, String  lastName, String staff_positon, String starship) {
         JSONObject requestBody = new JSONObject();
-        requestBody.put("first_name", first_name);
-        requestBody.put("last_name", last_name);
-        requestBody.put("staff_position", staff_positon);
+        requestBody.put(" firstName",  firstName);
+        requestBody.put(" lastName",  lastName);
+        requestBody.put(" staffPosition", staff_positon);
         requestBody.put("starship", starship);
         return requestBody;
     }
@@ -134,9 +134,9 @@ public class FunctionsStaffs {
     }
 
     private static void creatingStaffObectFromObject(JSONObject requestBody, Staffs.Staff staff) {
-        requestBody.put("first_name", staff.first_name);
-        requestBody.put("last_name", staff.last_name);
-        requestBody.put("staff_position", staff.staff_position);
+        requestBody.put(" firstName", staff. firstName);
+        requestBody.put(" lastName", staff. lastName);
+        requestBody.put(" staffPosition", staff. staffPosition);
         requestBody.put("starship", staff.starship);
     }
 
@@ -148,12 +148,12 @@ public class FunctionsStaffs {
         List<Staffs.Staff> staffs;
         //store all items
         staffs = table.asList(Staffs.Staff.class);
-        System.out.println("\nI check DataTable  record. It has parameters: " + allStaffs.get(hero_position - 1).get("first_name") + " " + allStaffs.get(hero_position - 1).get("last_name") + " " + allStaffs.get(hero_position - 1).get("staff_position"));
+        System.out.println("\nI check DataTable  record. It has parameters: " + allStaffs.get(hero_position - 1).get(" firstName") + " " + allStaffs.get(hero_position - 1).get(" lastName") + " " + allStaffs.get(hero_position - 1).get(" staffPosition"));
         for (Staffs.Staff staff : staffs) {
-            System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
-            assertEquals((allStaffs.get(hero_position - 1).get("first_name")), staff.first_name);
-            assertEquals((allStaffs.get(hero_position - 1).get("last_name")), staff.last_name);
-            assertEquals((allStaffs.get(hero_position - 1).get("staff_position")), staff.staff_position);
+            System.out.println("\nI check response. It has parameters: " + staff. firstName + " " + staff. lastName + " " + staff. staffPosition);
+            assertEquals((allStaffs.get(hero_position - 1).get(" firstName")), staff. firstName);
+            assertEquals((allStaffs.get(hero_position - 1).get(" lastName")), staff. lastName);
+            assertEquals((allStaffs.get(hero_position - 1).get(" staffPosition")), staff. staffPosition);
         }
     }
 
@@ -167,7 +167,7 @@ public class FunctionsStaffs {
                     .get(endpoint)
                     .then()
                     .statusCode(200);
-            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get("first_name") + " id: " + staff_list.get("id"));
+            System.out.print("\nDish[" + staff_massive_size + "]: " + staff_list.get(" firstName") + " id: " + staff_list.get("id"));
             staff_massive_size++;
         }
 
@@ -178,7 +178,7 @@ public class FunctionsStaffs {
 
         response = request.when().get(endpoint);
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println("\nI choose first staff record: " + "\t name: " + allStaffs.get(item_position_first).get("first_name")
+        System.out.println("\nI choose first staff record: " + "\t name: " + allStaffs.get(item_position_first).get(" firstName")
                 + "\t id: " + allStaffs.get(item_position_first).get("id"));
         String first_delete_ID_item = String.valueOf(allStaffs.get(item_position_first).get("id"));
 
@@ -192,7 +192,7 @@ public class FunctionsStaffs {
         response = request.when().get(endpoint);
         int item_position_last = last_item - 2;
         allStaffs = response.jsonPath().getList("");
-        System.out.println("\nI choose last  record: " + "\t name: " + allStaffs.get(item_position_last).get("first_name")
+        System.out.println("\nI choose last  record: " + "\t name: " + allStaffs.get(item_position_last).get(" firstName")
                 + "\t id: " + allStaffs.get(item_position_last).get("id"));
 
         String last_delete_ID_item = String.valueOf(allStaffs.get(item_position_last).get("id"));
@@ -213,9 +213,9 @@ public class FunctionsStaffs {
         List<Staffs.Staff> staffs;
         //store all items
         staffs = table.asList(Staffs.Staff.class);
-        System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get("first_name") + " " + allStaffs.get(staf_list_size).get("last_name") + " " + allStaffs.get(staf_list_size).get("staff_position"));
+        System.out.println("\nI check DataTable record. It has parameters: " + allStaffs.get(staf_list_size).get(" firstName") + " " + allStaffs.get(staf_list_size).get(" lastName") + " " + allStaffs.get(staf_list_size).get(" staffPosition"));
         for (Staffs.Staff staff : staffs) {
-            System.out.println("\nI check response. It has parameters: " + staff.first_name + " " + staff.last_name + " " + staff.staff_position);
+            System.out.println("\nI check response. It has parameters: " + staff. firstName + " " + staff. lastName + " " + staff. staffPosition);
         }
     }
 

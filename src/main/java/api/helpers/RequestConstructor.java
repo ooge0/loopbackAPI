@@ -27,7 +27,7 @@ public class RequestConstructor {
                 response = RestAssured.given().get(endPoint);
                 break;
             case "POST":
-                request = RestAssured.given()
+                request
                         .header(header[0], header[1])
                         .body(bodyAsString);
                 response = request.post(endPoint);

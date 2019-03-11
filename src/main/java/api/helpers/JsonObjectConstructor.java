@@ -6,11 +6,11 @@ import org.json.JSONObject;
 
 public class JsonObjectConstructor {
 
-    public static JSONObject makeStaffJsonObject( JSONObject requestBody, Staffs.Staff staff) {
+    public static JSONObject makeStaffJsonObject(JSONObject requestBody, Staffs.Staff staff) {
         {
-            requestBody.put("first_name", staff.first_name);
-            requestBody.put("last_name", staff.last_name);
-            requestBody.put("staff_position", staff.staff_position);
+            requestBody.put("firstName", staff.firstName);
+            requestBody.put("lastName", staff.lastName);
+            requestBody.put("staffPosition", staff.staffPosition);
             requestBody.put("starship", staff.starship);
         }
         return requestBody;

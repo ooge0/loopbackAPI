@@ -70,8 +70,8 @@ public class staffsTestNG {
             System.out.println("Staffs[" + staff_massive_size + "]: "
                     + "\t id: " + staffs_db.get("id")
                     + "\t firstName: " + staffs_db.get("firstName")
-                    + "\t last_name: " + staffs_db.get("last_name")
-                    + "\t staff_position: " + staffs_db.get("staff_position"));
+                    + "\t  lastName: " + staffs_db.get(" lastName")
+                    + "\t  staffPosition: " + staffs_db.get(" staffPosition"));
             staff_massive_size--;
 
         }
@@ -90,9 +90,9 @@ public class staffsTestNG {
         System.out.println("Staffs massive contains: " + staff_massive_size + " items");
 
         System.out.println("Deleted last Staffs record contained: " + "\n firstName: " + allStaffs.get(last_item).get("firstName")
-                + "\tlast_name: " + allStaffs.get(last_item).get("last_name")
+                + "\t lastName: " + allStaffs.get(last_item).get(" lastName")
                 + "\tid: " + allStaffs.get(last_item).get("id")
-                + "\tstaff_position: " + allStaffs.get(1).get("staff_position"));
+                + "\t staffPosition: " + allStaffs.get(1).get(" staffPosition"));
         System.out.println("Staffs collection contains: '" + last_item  +" 'records");
         String deleted_staff_ID;
 
@@ -134,8 +134,8 @@ public class staffsTestNG {
         for (int i = 0; i < 3; i++) {
             given().body("{\n" +
                     "  \"firstName\": \"firstName"+i+"\",\n" +
-                    "  \"last_name\": \"last_name"+i+"\",\n" +
-                    "  \"staff_position\": \"staff_position"+i+"\",\n" +
+                    "  \" lastName\": \" lastName"+i+"\",\n" +
+                    "  \" staffPosition\": \" staffPosition"+i+"\",\n" +
                     "  \"starship\": \"ship"+i+"\"\n" +
                     "}")
                     .contentType(ContentType.JSON)
@@ -164,8 +164,8 @@ public class staffsTestNG {
     public void post_Request_for_Dishes() {
         JSONObject requestBody = new JSONObject();
         requestBody.put("firstName", "firstName");
-        requestBody.put("last_name", "last_name");
-        requestBody.put("staff_position", "staff_positon");
+        requestBody.put(" lastName", " lastName");
+        requestBody.put(" staffPosition", "staff_positon");
         requestBody.put("starship", "starship");
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
@@ -184,8 +184,8 @@ public class staffsTestNG {
     public void post_Request_for_staffs() {
         JSONObject requestBody = new JSONObject();
         requestBody.put("firstName", "Wonder");
-        requestBody.put("last_name", "woman");
-        requestBody.put("staff_position", "hero");
+        requestBody.put(" lastName", "woman");
+        requestBody.put(" staffPosition", "hero");
         requestBody.put("starship", "starship");
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
@@ -202,8 +202,8 @@ public class staffsTestNG {
     public void postRequestExampleItemsDB() {
         JSONObject requestBody = new JSONObject();
         requestBody.put("firstName", "Wonder");
-        requestBody.put("last_name", "woman");
-        requestBody.put("staff_position", "hero");
+        requestBody.put(" lastName", "woman");
+        requestBody.put(" staffPosition", "hero");
         requestBody.put("starship", "starship");
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
