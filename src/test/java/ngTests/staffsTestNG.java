@@ -1,4 +1,4 @@
-package api.ngTests;//package restassured.steps;
+package ngTests;//package restassured.stepDefinitions;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -43,10 +43,10 @@ public class staffsTestNG {
     @Test
     public void get_name_of_staffs() {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
-        System.out.println(allStaffs.get(1).get("first_name"));
+        System.out.println(allStaffs.get(1).get("firstName"));
 
         for (Map<String, List<String>> staff_first_name : allStaffs) {
-            System.out.println(counter + ") First name: " + staff_first_name.get("first_name"));
+            System.out.println(counter + ") First name: " + staff_first_name.get("firstName"));
             counter++;
         }
     }
@@ -69,7 +69,7 @@ public class staffsTestNG {
         for (Map<String, List<String>> staffs_db : allStaffs) {
             System.out.println("Staffs[" + staff_massive_size + "]: "
                     + "\t id: " + staffs_db.get("id")
-                    + "\t first_name: " + staffs_db.get("first_name")
+                    + "\t firstName: " + staffs_db.get("firstName")
                     + "\t last_name: " + staffs_db.get("last_name")
                     + "\t staff_position: " + staffs_db.get("staff_position"));
             staff_massive_size--;
@@ -89,11 +89,11 @@ public class staffsTestNG {
 
         System.out.println("Staffs massive contains: " + staff_massive_size + " items");
 
-        System.out.println("Deleted last Staff record contained: " + "\n first_name: " + allStaffs.get(last_item).get("first_name")
+        System.out.println("Deleted last Staffs record contained: " + "\n firstName: " + allStaffs.get(last_item).get("firstName")
                 + "\tlast_name: " + allStaffs.get(last_item).get("last_name")
                 + "\tid: " + allStaffs.get(last_item).get("id")
                 + "\tstaff_position: " + allStaffs.get(1).get("staff_position"));
-        System.out.println("Staff collection contains: '" + last_item  +" 'records");
+        System.out.println("Staffs collection contains: '" + last_item  +" 'records");
         String deleted_staff_ID;
 
         deleted_staff_ID = String.valueOf(allStaffs.get(last_item).get("id"));
@@ -114,7 +114,7 @@ public class staffsTestNG {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staff_massive_size = allStaffs.size();
 
-        System.out.println("Staff massive contains: " + staff_massive_size + " items");
+        System.out.println("Staffs massive contains: " + staff_massive_size + " items");
         for (Map<String, List<String>> staffs_db : allStaffs) {
             String deleted_staff_ID = String.valueOf(staffs_db.get("id"));
             System.out.println("deleted_staff_ID: " + deleted_staff_ID);
@@ -122,7 +122,7 @@ public class staffsTestNG {
                     .when()
                     .delete("/staffs/" + deleted_staff_ID);
 
-            System.out.println("Staff[" + counter + "]: " + "first_name: " + staffs_db.get("first_name") +
+            System.out.println("Staffs[" + counter + "]: " + "firstName: " + staffs_db.get("firstName") +
                     "\t id: " + staffs_db.get("id") + " is DELETED\n");
             staff_massive_size--;
             counter ++;
@@ -133,7 +133,7 @@ public class staffsTestNG {
     public void addCucumber() {
         for (int i = 0; i < 3; i++) {
             given().body("{\n" +
-                    "  \"first_name\": \"first_name"+i+"\",\n" +
+                    "  \"firstName\": \"firstName"+i+"\",\n" +
                     "  \"last_name\": \"last_name"+i+"\",\n" +
                     "  \"staff_position\": \"staff_position"+i+"\",\n" +
                     "  \"starship\": \"ship"+i+"\"\n" +
@@ -163,7 +163,7 @@ public class staffsTestNG {
     @Test
     public void post_Request_for_Dishes() {
         JSONObject requestBody = new JSONObject();
-        requestBody.put("first_name", "first_name");
+        requestBody.put("firstName", "firstName");
         requestBody.put("last_name", "last_name");
         requestBody.put("staff_position", "staff_positon");
         requestBody.put("starship", "starship");
@@ -183,7 +183,7 @@ public class staffsTestNG {
     @Test
     public void post_Request_for_staffs() {
         JSONObject requestBody = new JSONObject();
-        requestBody.put("first_name", "Wonder");
+        requestBody.put("firstName", "Wonder");
         requestBody.put("last_name", "woman");
         requestBody.put("staff_position", "hero");
         requestBody.put("starship", "starship");
@@ -201,7 +201,7 @@ public class staffsTestNG {
     @Test
     public void postRequestExampleItemsDB() {
         JSONObject requestBody = new JSONObject();
-        requestBody.put("first_name", "Wonder");
+        requestBody.put("firstName", "Wonder");
         requestBody.put("last_name", "woman");
         requestBody.put("staff_position", "hero");
         requestBody.put("starship", "starship");
@@ -215,5 +215,12 @@ public class staffsTestNG {
         String successCode = response.jsonPath().get("SuccessCode");
         System.out.println("Status Code is : " + statusCode);
         System.out.println(response.getBody().asString());
+    }
+
+    @Test
+    public void stringMethods () {
+        StringBuffer strBuffer = new StringBuffer("assembler");
+        strBuffer.reverse();
+        System.out.println(strBuffer.toString()); //relbmessa
     }
 }
