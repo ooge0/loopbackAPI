@@ -1,9 +1,9 @@
 Feature: Interaction with Records model
 
-  @Records
+  @record
   Scenario: I create, delete several records. Invoke parameters and work with them.
     Given I'm working with Records entity
-    And I add new 'Record'
+    And I add new 'Record' and store id for each entity
       | recordIdItem | recordLabelItem | recordCreationDataItem | recordRelationItem | recordOwnerItem | recordStatusItem |
       | 1            | cola            | 10 Apr 2019            | restorans          | boss            | true             |
       | 2            | tv              | 11/12/2005             | apollo 2           | slayer          | false            |
