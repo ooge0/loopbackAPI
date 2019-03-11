@@ -1,11 +1,10 @@
 
-*/*/*/*/*/*/*/*/*/  Prerequisites  *\*\*\*\*\*\*\*\*\\*
+* Prerequisites  *\*\*\*\*\*\*\*\*\\*
 Java over 1.8.0_151
 Node.js (npm) over 6.1.0
 
 
-
-*/*/*/*/*/*/*/*/*/  Test launching  *\*\*\*\*\*\*\*\*\\*
+*  Test launching  *\*\*\*\*\*\*\*\*\\*
 
 - Before any test launching to start command: 'npm start', command for related loopback project.
 - Current framework is working with "Student" loopback project (and will execute Staffs.feature)
