@@ -48,9 +48,7 @@ public class RequestConstructor {
 
     public static void checkingExistingCollection() {
         List<Map<String, List<String>>> allEntities = response.jsonPath().getList("");
-        System.out.println("\nI check the list after adding and it contains: " + allEntities.size() + " items.\n");
+        System.out.println("\nI check the list after adding new item and it contains: " + allEntities.size() + " items.\n");
         assertNotNull(allEntities);
     }
-
-
 }

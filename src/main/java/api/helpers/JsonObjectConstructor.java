@@ -2,6 +2,7 @@ package api.helpers;
 
 import api.POJO.Records;
 import api.POJO.Staffs;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JsonObjectConstructor {
@@ -17,16 +18,21 @@ public class JsonObjectConstructor {
     }
 
     public static JSONObject makeRecordJsonObject(JSONObject requestBody, Records.Record record) {
-
+        JSONObject jo = new JSONObject();
+        String relationTypeValue =  record.recordRelation;
+        jo.put("relationType", relationTypeValue);
+        JSONArray ja = new JSONArray();
+        ja.put(jo);
         {
-            requestBody.put("recordIdItem", record.recordIdItem);
-            requestBody.put("recordLabelItem", record.recordLabelItem);
-            requestBody.put("recordCreationDataItem", record.recordCreationDataItem);
-            requestBody.put("recordRelationItem", record.recordRelationItem[0]);
-            requestBody.put("recordOwnerItem", record.recordOwnerItem);
-            requestBody.put("recordStatusItem", record.recordStatusItem);
+            requestBody.put("recordId", record.recordId);
+            requestBody.put("recordLabel", record.recordLabel);
+            requestBody.put("recordCreationData", record.recordCreationData);
+            requestBody.put("recordRelation", ja);
+            requestBody.put("recordOwner", record.recordOwner);
+            requestBody.put("recordStatus", record.recordStatus);
         }
         return requestBody;
     }
+
 
 }

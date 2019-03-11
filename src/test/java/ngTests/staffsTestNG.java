@@ -6,9 +6,9 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
@@ -81,7 +81,7 @@ public class staffsTestNG {
     }
 
 
-    @Test(enabled = true)
+    @Test
     public void delete_staff_by_ID() {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staff_massive_size = allStaffs.size();
@@ -109,7 +109,7 @@ public class staffsTestNG {
 
     }
 
-    @Test(enabled = true)
+    @Test
     public void delete_all_dishes_by_ID() {
         List<Map<String, List<String>>> allStaffs = response.jsonPath().getList("");
         int staff_massive_size = allStaffs.size();
@@ -129,7 +129,7 @@ public class staffsTestNG {
         }
     }
 
-    @Test(enabled = true)
+    @Test
     public void addCucumber() {
         for (int i = 0; i < 3; i++) {
             given().body("{\n" +
@@ -148,7 +148,7 @@ public class staffsTestNG {
 
 
 
-    @Test(enabled = false)
+    @Test
     public void get_dishes_by_ID() {
         given()
                 .when()
