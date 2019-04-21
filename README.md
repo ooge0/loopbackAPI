@@ -12,7 +12,8 @@ Node.js (npm) over 6.1.0 (for launching back-end app)	* Node.js (npm) over 6.1.0
 
 
  ## Test launching  
-Before any test launching to start command:
+Before any test launching:
+start command:
 ```bash npm start ``` , command from the related loopback project folder.
  * Current framework is working with **"Student"** loopback project (and will execute Staffs.feature)
 * Student project has simple UI view available on http://localhost:3000/index.html
