@@ -22,22 +22,18 @@ public class Resources {
         return envPropertyFilePath;
     }
 
-
     public static String getEnvValue() throws IOException {
         String serviceURL = null;
         String envValue = System.getProperty("urlConfig");
-        System.out.println("envValue: "+ envValue);
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(Resources.envPropertyFilePath());
         prop.load(fis);
         if ("DISH".equals(envValue)) {
             serviceURL = (String) prop.get("ENDPOINT_DISHES");
             System.out.println("serviceURL:" + serviceURL);
-
         } else if ("STAFF".equals(envValue)) {
             serviceURL = (String) prop.get("ENDPOINT_STAFF");
             System.out.println("serviceURL:" + serviceURL);
-
         } else {
             System.out.println(Resources.defaultEnvWarning());
         }

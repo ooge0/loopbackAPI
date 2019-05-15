@@ -188,9 +188,9 @@
 //    @Test
 //    public void post_Request_for_staffs() {
 //        JSONObject requestBody = new JSONObject();
-//        requestBody.put("first_name", "Wonder");
-//        requestBody.put("last_name", "woman");
-//        requestBody.put("staff_position", "hero");
+//        requestBody.put("firstName", "Wonder");
+//        requestBody.put("lastName", "woman");
+//        requestBody.put("staffPosition", "hero");
 //        RequestSpecification request = RestAssured.given();
 //        request.header("Content-Type", "application/json");
 //        request.body(requestBody.toString());

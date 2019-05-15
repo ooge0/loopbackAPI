@@ -57,7 +57,7 @@ public class DishesSteps {
     }
 
     @And("I print information about Dishes list")
-    public void get_prettyPrint_of_dishes(Response response) throws IOException {
+    public void get_prettyPrint_of_dishes() throws IOException {
         response = request.when().get(Resources.getEnvValue());
         System.out.println("response: " + response.prettyPrint());
 
