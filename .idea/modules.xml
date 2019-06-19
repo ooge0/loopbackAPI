@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/loopbackAPI.iml" filepath="$PROJECT_DIR$/loopbackAPI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student.iml" filepath="$PROJECT_DIR$/.idea/modules/student.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student.main.iml" filepath="$PROJECT_DIR$/.idea/modules/student.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student.test.iml" filepath="$PROJECT_DIR$/.idea/modules/student.test.iml" />
     </modules>
   </component>
 </project>

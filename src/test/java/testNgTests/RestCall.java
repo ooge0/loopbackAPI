@@ -1,4 +1,5 @@
-package api;
+package testNgTests;
+
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -6,7 +7,7 @@ import org.testng.AssertJUnit;
 
 import static com.jayway.restassured.http.ContentType.JSON;
 
-public class TestNgTests {
+public class RestCall {
     @Test
     public void testRecordCreationFromJson() {
         String body = "{\n" +
@@ -31,5 +32,6 @@ public class TestNgTests {
         AssertJUnit.assertEquals(200, stCode);
 
         response.prettyPrint();
+
     }
 }

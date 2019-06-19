@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="277762ca-9c24-44da-af1e-6e9923dab4f4" name="Default" comment="" />
+    <list default="true" id="277762ca-9c24-44da-af1e-6e9923dab4f4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/model/people/People.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/model/people/UserAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/items.json1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_4_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_4_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loopbackAPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loopbackAPI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/TestNgTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/TestNgTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/helpers/Resources.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/helpers/Resources.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/steps/DishesSteps$Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/steps/DishesSteps$Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/steps/DishesSteps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/steps/DishesSteps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/steps/StaffsSteps$Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/steps/StaffsSteps$Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/steps/StaffsSteps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/steps/StaffsSteps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feature/dishes_feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/RunnerClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/runners/RunnerClass.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../sandboxAddressbook/student/.gradle/" />
     <ignored path="$PROJECT_DIR$/../sandboxAddressbook/student/build/" />
@@ -32,19 +59,77 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../sandboxAddressbook/student/src/test/java/tests/RecordCreationTest.java">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/RecordCreationTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="38" selection-start-line="38" selection-end-line="38" />
+                <state relative-caret-position="101">
+                  <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/PeopleCreation.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="649">
+                  <caret line="152" column="34" lean-forward="true" selection-start-line="152" selection-start-column="34" selection-end-line="152" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/api/helpers/Resources.java">
+            <entry file="file://$PROJECT_DIR$/src/test/java/dataGenerator/ItemEntityGenerator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="150">
+                  <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#2677#2687#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/dataGenerator/PeopleEntityGenerator.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-700">
+                  <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/StaffCreationTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/ItemCreationTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="36">
+                  <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/RestAssuredItemTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-276">
+                  <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/tests/RestItemTests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1003">
+                  <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -53,37 +138,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/feature/staffs.feature">
+            <entry file="file://$PROJECT_DIR$/READMI.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/../sandboxAddressbook/student/.gitignore">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="490">
-                  <caret line="233" column="43" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="43" />
-                  <folding>
-                    <element signature="e#7266#7267#0" expanded="true" />
-                    <element signature="e#7328#7329#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/feature/dishes.feature">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+                <state relative-caret-position="442">
+                  <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
                 </state>
               </provider>
             </entry>
@@ -93,10 +151,52 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java">
+            <entry file="file://$PROJECT_DIR$/src/test/java/dataGenerator/PeopleEntityGenerator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
+                <state relative-caret-position="705">
+                  <caret line="94" column="31" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#3075#3087#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/model/people/People.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/model/people/PeopleData.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#328#329#0" expanded="true" />
+                    <element signature="e#356#357#0" expanded="true" />
+                    <element signature="e#469#470#0" expanded="true" />
+                    <element signature="e#503#504#0" expanded="true" />
+                    <element signature="e#621#622#0" expanded="true" />
+                    <element signature="e#647#648#0" expanded="true" />
+                    <element signature="e#925#926#0" expanded="true" />
+                    <element signature="e#950#951#0" expanded="true" />
+                    <element signature="e#756#757#0" expanded="true" />
+                    <element signature="e#790#791#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/model/item/ItemData.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -135,6 +235,7 @@
       <find>pretty</find>
       <find>print</find>
       <find>envValue</find>
+      <find>set</find>
     </findStrings>
     <replaceStrings>
       <replace>Resources.getEnvValue()</replace>
@@ -142,6 +243,7 @@
       <replace>url</replace>
       <replace>position</replace>
       <replace>Staff</replace>
+      <replace>with</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -157,7 +259,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/java/env.properties" />
         <option value="$PROJECT_DIR$/src/test/java/runners/Cucumber.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/steps/staffs.java" />
         <option value="$PROJECT_DIR$/src/main/java/steps/staffs_steps.java" />
         <option value="$PROJECT_DIR$/src/main/java/steps/dishes_steps.java" />
@@ -166,16 +267,38 @@
         <option value="$PROJECT_DIR$/src/main/java/helpers/Resources.java" />
         <option value="$PROJECT_DIR$/src/main/java/steps/StaffsSteps.java" />
         <option value="$PROJECT_DIR$/src/test/java/resources/dishesTestNG.java" />
-        <option value="$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java" />
         <option value="$PROJECT_DIR$/src/test/java/runners/RunnerClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/TestNgTests.java" />
         <option value="$PROJECT_DIR$/txt.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/api/steps/DishesSteps.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/helpers/Resources.java" />
         <option value="$PROJECT_DIR$/src/env.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/feature/staffs.feature" />
-        <option value="$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java" />
         <option value="$PROJECT_DIR$/../sandboxAddressbook/student/src/test/java/tests/RecordCreationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java" />
+        <option value="$PROJECT_DIR$/src/test/java/testNgTests/RestCall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/TestNgTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java" />
+        <option value="$PROJECT_DIR$/src/test/java/newModel/PeopleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/newModel/people/UserAddress.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/people/People.java" />
+        <option value="$PROJECT_DIR$/src/test/java/testNgTests/PeopleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/record/Record.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/staff/StaffData.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/item/Item.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dataGenerator/StudentEntityGenerator.java" />
+        <option value="$PROJECT_DIR$/student/src/test/java/tests/RestItemTests.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/ItemCreationTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/RestAssuredItemTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/RecordCreationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/StaffCreationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/RestItemTests.java" />
+        <option value="$PROJECT_DIR$/READMI.md" />
+        <option value="$PROJECT_DIR$/src/test/java/dataGenerator/EntityGenerator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dataGenerator/ItemEntityGenerator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tests/PeopleCreation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/people/PeopleData.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dataGenerator/PeopleEntityGenerator.java" />
       </list>
     </option>
   </component>
@@ -203,10 +326,13 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2145" />
-    <option name="y" value="55" />
-    <option name="width" value="1094" />
-    <option name="height" value="969" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -214,7 +340,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -225,33 +350,116 @@
             </path>
             <path>
               <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="student" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dataGenerator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="item" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="people" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loopbackAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="loopbackAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="itemMockData" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sandboxAddressbook/student" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.26367188" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model.people" />
+      <recent name="dataGenerator" />
+      <recent name="tests" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GIT\loopbackAPI\src\test\java" />
+      <recent name="C:\GIT\loopbackAPI\src\test\java\model\item" />
+      <recent name="C:\GIT\loopbackAPI\src\test\java\model" />
+      <recent name="C:\GIT\loopbackAPI\src\test\java\newModel" />
       <recent name="C:\GIT\sandboxAddressbook\student" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="runners" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GIT\loopbackAPI\src\test\resources" />
+      <recent name="C:\GIT\loopbackAPI\src\test" />
       <recent name="D:\GitHub\loopbackAPI\src\main" />
       <recent name="D:\GitHub\loopbackAPI\src" />
       <recent name="D:\GitHub\loopbackAPI\src\test\java\resources" />
@@ -269,9 +477,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber java.Staff">
+  <component name="RunManager" selected="Application.PeopleGenerator">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemGenerator" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="dataGenerator.ItemEntityGenerator" />
+      <module name="loopbackAPI" />
+      <option name="PROGRAM_PARAMETERS" value="-c 2 -d xml -f $PROJECT_DIR$/src/test/resources/itemMockData/items.xml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PeopleGenerator" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="dataGenerator.PeopleEntityGenerator" />
+      <module name="loopbackAPI" />
+      <option name="PROGRAM_PARAMETERS" value="-c 22 -d json -f $PROJECT_DIR$/src/test/resources/peopleMockData/peolpe.json" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -302,45 +526,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: I create, delete several items and invoke parameters and work with them. (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/feature/dishes.feature" />
-      <option name="GLUE" value="api.steps" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="loopbackAPI" />
-      <option name="NAME_FILTER" value="^I create\, delete several items and invoke parameters and work with them\.$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^I create\, delete several items and invoke parameters and work with them\.$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: I create, delete several items and invoke parameters and work with them." />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Staff" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true">
-      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/feature/staffs.feature" />
-      <option name="GLUE" value="api.steps" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="loopbackAPI" />
-      <option name="NAME_FILTER" value="^I create\, delete several items and invoke parameters and work with them\.$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^I create\, delete several items and invoke parameters and work with them\.$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: I create, delete several items and invoke parameters and work with them." />
-      <option name="VM_PARAMETERS" value="-DurlConfig=STAFF" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -361,8 +546,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordCreationTest.testRecordCreationFromJson" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="student.test" />
+    <configuration name="ItemCreationTests.testItemCreationFromJson" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="loopbackAPI" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="tests.*" />
@@ -370,8 +555,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RecordCreationTest" />
-      <option name="METHOD_NAME" value="testRecordCreationFromJson" />
+      <option name="MAIN_CLASS_NAME" value="tests.ItemCreationTests" />
+      <option name="METHOD_NAME" value="testItemCreationFromJson" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
@@ -380,17 +565,74 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNgTests.addTheDishes" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PeopleCreation.peopleEntityCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="loopbackAPI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="api.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.TestNgTests" />
-      <option name="METHOD_NAME" value="addTheDishes" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.PeopleCreation" />
+      <option name="METHOD_NAME" value="peopleEntityCreation" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestAssuredItemTests.testCreateItem" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="loopbackAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.RestAssuredItemTests" />
+      <option name="METHOD_NAME" value="testCreateItem" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestItemTests.whenPostJsonUsingHttpClient_thenCorrect" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="loopbackAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.RestItemTests" />
+      <option name="METHOD_NAME" value="whenPostJsonUsingHttpClient_thenCorrect" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StaffCreationTest.testItemCreationFromJson (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="loopbackAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.StaffCreationTest" />
+      <option name="METHOD_NAME" value="testItemCreationFromJson" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
@@ -418,17 +660,23 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ItemGenerator" />
+      <item itemvalue="Application.PeopleGenerator" />
       <item itemvalue="Cucumber java.Dish" />
-      <item itemvalue="Cucumber java.Staff" />
       <item itemvalue="JUnit.runnerConfiguration" />
-      <item itemvalue="TestNG.TestNgTests.addTheDishes" />
-      <item itemvalue="TestNG.RecordCreationTest.testRecordCreationFromJson" />
+      <item itemvalue="TestNG.ItemCreationTests.testItemCreationFromJson" />
+      <item itemvalue="TestNG.StaffCreationTest.testItemCreationFromJson (1)" />
+      <item itemvalue="TestNG.RestAssuredItemTests.testCreateItem" />
+      <item itemvalue="TestNG.RestItemTests.whenPostJsonUsingHttpClient_thenCorrect" />
+      <item itemvalue="TestNG.PeopleCreation.peopleEntityCreation" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber java.Staff" />
-        <item itemvalue="TestNG.RecordCreationTest.testRecordCreationFromJson" />
-        <item itemvalue="TestNG.TestNgTests.addTheDishes" />
+        <item itemvalue="TestNG.PeopleCreation.peopleEntityCreation" />
+        <item itemvalue="TestNG.RestItemTests.whenPostJsonUsingHttpClient_thenCorrect" />
+        <item itemvalue="TestNG.RestAssuredItemTests.testCreateItem" />
+        <item itemvalue="TestNG.StaffCreationTest.testItemCreationFromJson (1)" />
+        <item itemvalue="TestNG.ItemCreationTests.testItemCreationFromJson" />
       </list>
     </recent_temporary>
   </component>
@@ -445,41 +693,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Staff - 2019.05.14 at 15h 29m 58s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="PeopleTest_PeopleEntityCreationFromObject - 2019.06.19 at 12h 45m 50s.xml">
+      <configuration name="PeopleTest.PeopleEntityCreationFromObject" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 31m 07s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="PeopleTest_PeopleEntityCreationFromJson - 2019.06.19 at 13h 16m 28s.xml">
+      <configuration name="PeopleTest.PeopleEntityCreationFromJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 35m 36s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="PeopleTest_PeopleEntityCreationFromObject - 2019.06.19 at 13h 20m 48s.xml">
+      <configuration name="PeopleTest.PeopleEntityCreationFromObject" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 37m 21s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RestCall_testRecordCreationFromJson - 2019.06.19 at 13h 23m 02s.xml">
+      <configuration name="RestCall.testRecordCreationFromJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 38m 13s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RestCall_testRecordCreationFromJson - 2019.06.19 at 13h 24m 46s.xml">
+      <configuration name="RestCall.testRecordCreationFromJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 39m 24s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="TestNgTests_testRecordCreationFromJson - 2019.06.19 at 14h 43m 49s.xml">
+      <configuration name="TestNgTests.testRecordCreationFromJson" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 40m 02s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="StaffCreationTest_testItemCreationFromJson_(1) - 2019.06.19 at 15h 04m 25s.xml">
+      <configuration name="StaffCreationTest.testItemCreationFromJson (1)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.14 at 15h 44m 15s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="RestAssuredItemTests_testCreateItem - 2019.06.19 at 15h 04m 46s.xml">
+      <configuration name="RestAssuredItemTests.testCreateItem" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RecordCreationTest_testRecordCreationFromJson - 2019.05.15 at 15h 49m 59s.xml">
-      <configuration name="RecordCreationTest.testRecordCreationFromJson" configurationId="TestNG" />
+    <history-entry file="RestItemTests_whenPostJsonUsingHttpClient_thenCorrect - 2019.06.19 at 15h 05m 09s.xml">
+      <configuration name="RestItemTests.whenPostJsonUsingHttpClient_thenCorrect" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Staff - 2019.05.15 at 15h 50m 42s.xml">
-      <configuration name="Staff" configurationId="CucumberJavaRunConfigurationType" />
+    <history-entry file="PeopleCreation_peopleEntityCreation - 2019.06.19 at 15h 20m 11s.xml">
+      <configuration name="PeopleCreation.peopleEntityCreation" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-38" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17217484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23827292" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -487,20 +736,18 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="simpleUML" order="7" weight="0.3299595" />
-      <window_info anchor="bottom" id="Build" weight="0.32981783" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49730095" weight="0.33269414" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49730095" weight="0.26327193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49460188" visible="true" weight="0.19558965" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49460188" weight="0.11668484" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026991" side_tool="true" weight="0.3290653" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293247" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49730095" weight="0.2358581" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Gradle" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49730095" weight="0.2355507" />
+      <window_info anchor="bottom" id="Build" order="11" weight="0.32981783" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -509,6 +756,8 @@
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3299595" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32956812" />
+      <window_info anchor="right" id="Gradle" order="9" />
     </layout>
   </component>
   <component name="XDebuggerManager">
@@ -528,27 +777,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/runners/ad.java" />
     <entry file="file://$PROJECT_DIR$/loopbackAPI.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="72" column="21" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="72" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/TestNgTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/txt.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/feature/dishes_feature" />
@@ -573,45 +801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/DishesSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/env.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="233" column="43" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="43" />
-          <folding>
-            <element signature="e#7266#7267#0" expanded="true" />
-            <element signature="e#7328#7329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/helpers/Resources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/feature/dishes.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -622,15 +815,316 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/feature/staffs.feature">
+    <entry file="file://$PROJECT_DIR$/../sandboxAddressbook/student/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/java/tests/RecordCreationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+        <state relative-caret-position="277">
+          <caret line="46" column="58" lean-forward="true" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sandboxAddressbook/student/.gitignore">
+    <entry file="file://$PROJECT_DIR$/loopback/src/main/resources/feature/staffs.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loopback/src/test/java/testNgTests/dishesTestNG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/people/UserAddress.java">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/testNgTests/dishesTestNG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2567">
+          <caret line="165" column="5" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/feature/dishes.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/DishesSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="98" column="16" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/feature/staffs.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/steps/StaffsSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="111" column="49" selection-start-line="111" selection-start-column="49" selection-end-line="111" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/testNgTests/PeopleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/helpers/Resources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/testNgTests/RestCall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/staff/Staff.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/staff/StaffData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/TestNgTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/java/tests/StaffCreationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/item/Item.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/resources/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/java/model/ItemData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/java/dataGenerator/StudentEntityGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/items.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/src/test/java/tests/RestItemTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/StaffCreationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/ItemCreationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RestAssuredItemTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RestItemTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/RecordCreationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/READMI.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/itemMockData.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dataGenerator/ItemEntityGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2677#2687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/record/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/record/RecordData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1244">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/item/ItemData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tests/PeopleCreation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="152" column="34" lean-forward="true" selection-start-line="152" selection-start-column="34" selection-end-line="152" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/people/People.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/people/PeopleData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding>
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#790#791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dataGenerator/PeopleEntityGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="94" column="31" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
+          <folding>
+            <element signature="e#3075#3087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -687,7 +1181,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
